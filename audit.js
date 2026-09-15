@@ -20,7 +20,11 @@ const INVENTORY = [
     probe: "uluslararası standartlarda anahtar teslim elektrik, mekanik ve akıllı bina" },
   { old: "/about", yeni: "/hakkimizda/", ad: "Hakkımızda",
     probe: "şantiye şefliği, teknik ofis ve bina otomasyon (BMS) yöneticiliği tecrübeleri" },
-  { old: "/contact", yeni: "/iletisim/", ad: "İletişim",
+  // Eski /contact sayfası ikiye ayrıldı: iletişim bilgileri /iletisim/ altında,
+  // talep formu ise /kesif-iste/ sayfasında. İki parçayı da ayrı ayrı doğruluyoruz.
+  { old: "/contact", yeni: "/iletisim/", ad: "İletişim (bilgiler)",
+    probe: "Projeniz veya tesisiniz için bizimle iletişime geçin" },
+  { old: "/contact", yeni: "/kesif-iste/", ad: "İletişim (talep formu)",
     probe: "keşif isteğiniz veya teknik danışmanlık talepleriniz" },
   { old: "/hizmetlerimiz", yeni: "/hizmetler/", ad: "Hizmetler listesi",
     probe: "güneş enerjisi ve elektrikli araç şarj sistemlerinde uçtan uca" },
