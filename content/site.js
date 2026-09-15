@@ -36,3 +36,14 @@ export const nav = [
   { label: "Hakkımızda", href: "/hakkimizda/" },
   { label: "İletişim", href: "/iletisim/" },
 ];
+
+/**
+ * WhatsApp bağlantısı üretir; verilen metni sohbet kutusuna hazır yazar.
+ * Amaç, karşı tarafın hiçbir şey yazmadan "gönder"e basabilmesi — B2B'de
+ * talebin ne olduğu daha ilk mesajda belli olur.
+ * @param {string} [text] sohbete önceden yazılacak mesaj
+ */
+export function waLink(text) {
+  const base = site.contact.whatsapp;
+  return text ? `${base}?text=${encodeURIComponent(text)}` : base;
+}

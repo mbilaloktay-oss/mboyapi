@@ -3,7 +3,7 @@
 
 // NOT: PDF'ler şu an hâlâ Wix depolamasında duruyor. Wix aboneliği
 // sonlandırılmadan önce dosyalar indirilip `static/dokumanlar/` içine
-// konmalı ve aşağıdaki `url` alanları `localUrl` ile değiştirilmelidir.
+// Şablonlar artık kendi sitemizde: static/dokumanlar/ içinde duruyorlar.
 export const templates = [
   {
     no: "01",
@@ -12,8 +12,7 @@ export const templates = [
       "Elektrik ve mekanik taşeron/tedarikçi anlaşmalarında kullanılan 19 maddelik kapsamlı sözleşme yapısı. Avrupa/FIDIC terim karşılıkları tablosu içerir (Geçici Kabul, Hakediş, Garanti Süresi vb.).",
     file: "MBO_Taseron_Sozlesmesi_Sablonu.pdf",
     localUrl: "/dokumanlar/MBO_Taseron_Sozlesmesi_Sablonu.pdf",
-    url:
-      "https://d556ce63-1818-4d77-a86d-78e749714bc8.usrfiles.com/ugd/edaea9_baa8638557214b7fb021841b43ff98b7.pdf",
+    url: "/dokumanlar/MBO_Taseron_Sozlesmesi_Sablonu.pdf",
   },
   {
     no: "02",
@@ -22,8 +21,7 @@ export const templates = [
       "Sözleşmenin ekinde yer alan, işveren ile taşeron arasındaki gider ve sorumluluk paylaşımını netleştiren kontrol listesi (özlük hakları, şantiye mobilizasyonu, malzeme/ekipman, genel işler).",
     file: "MBO_Sorumluluk_Tablosu_Sablonu.pdf",
     localUrl: "/dokumanlar/MBO_Sorumluluk_Tablosu_Sablonu.pdf",
-    url:
-      "https://d556ce63-1818-4d77-a86d-78e749714bc8.usrfiles.com/ugd/edaea9_af9028511c574067ac59bde0978fca82.pdf",
+    url: "/dokumanlar/MBO_Sorumluluk_Tablosu_Sablonu.pdf",
   },
   {
     no: "03",
@@ -32,8 +30,7 @@ export const templates = [
       "Elektrik ve mekanik tesisat işlerinde uygulanacak standartlar (TS EN, Elektrik İç Tesisleri Yönetmeliği, ASHRAE/NFPA eşdeğerleri), malzeme/işçilik şartları ve test-devreye alma esasları.",
     file: "MBO_Teknik_Sartname_Sablonu.pdf",
     localUrl: "/dokumanlar/MBO_Teknik_Sartname_Sablonu.pdf",
-    url:
-      "https://d556ce63-1818-4d77-a86d-78e749714bc8.usrfiles.com/ugd/edaea9_1e9dcae1bad14c7b8e8d32dd7d456bee.pdf",
+    url: "/dokumanlar/MBO_Teknik_Sartname_Sablonu.pdf",
   },
   {
     no: "04",
@@ -42,8 +39,7 @@ export const templates = [
       "6331 sayılı İSG Kanunu'na dayanan, şantiye sahasına giren personel için kişisel koruyucu donanım, elektrik güvenliği, yüksekte çalışma ve acil durum kuralları.",
     file: "MBO_Is_Guvenligi_Talimatnamesi_Sablonu.pdf",
     localUrl: "/dokumanlar/MBO_Is_Guvenligi_Talimatnamesi_Sablonu.pdf",
-    url:
-      "https://d556ce63-1818-4d77-a86d-78e749714bc8.usrfiles.com/ugd/edaea9_7c43575105534e068d240ff0d8197e13.pdf",
+    url: "/dokumanlar/MBO_Is_Guvenligi_Talimatnamesi_Sablonu.pdf",
   },
 ];
 
