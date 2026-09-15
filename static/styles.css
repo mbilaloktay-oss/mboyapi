@@ -149,7 +149,7 @@ p { margin: 0; text-wrap: pretty; }
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  min-height: 68px;
+  min-height: 80px;
 }
 
 .brand {
@@ -158,6 +158,11 @@ p { margin: 0; text-wrap: pretty; }
   gap: 9px;
   text-decoration: none;
   flex: none;
+}
+.brand__logo {
+  height: 56px;
+  width: auto;
+  display: block;
 }
 .brand__mark {
   font-size: 21px;
@@ -722,6 +727,7 @@ p { margin: 0; text-wrap: pretty; }
   .masthead { position: relative; }
   .masthead__in { position: relative; }
   .brand__sub { display: none; }
+  .brand__logo { height: 42px; }
 
   .facts { grid-template-columns: 1fr; }
   .facts__item { border-right: 0; border-bottom: 1px solid var(--rule-soft); padding-right: 0; }
@@ -895,4 +901,57 @@ p { margin: 0; text-wrap: pretty; }
   .masthead, .cta, .nav-toggle { display: none; }
   body { font-size: 11pt; }
   a { text-decoration: none; color: #000; }
+}
+
+/* ---- iletişim formu: gönderim durumu ---- */
+.hpot {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  overflow: hidden; clip-path: inset(50%);
+  white-space: nowrap;
+}
+.form__send {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.form__state {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.5;
+  padding: 9px 13px;
+  border-left: 2.5px solid var(--rule);
+  color: var(--ink-2);
+  flex: 1 1 260px;
+  min-width: 0;
+}
+.form__state--ok {
+  border-left-color: var(--accent);
+  color: var(--ink);
+}
+.form__state--err {
+  border-left-color: #A33B3B;
+  color: var(--ink);
+}
+.form__state a { color: inherit; }
+
+.field--check label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.field--check input {
+  width: 17px;
+  height: 17px;
+  margin: 2px 0 0;
+  flex: none;
+  accent-color: var(--accent);
 }
