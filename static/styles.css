@@ -928,8 +928,13 @@ p { margin: 0; text-wrap: pretty; }
   min-width: 0;
 }
 .form__state--ok {
-  border-left-color: var(--accent);
-  color: var(--ink);
+  border-left-color: #2C7A57;
+  background: #EAF5EF;
+  color: #14402E;
+}
+.form__state--ok strong {
+  font-weight: 700;
+  color: #1B6046;
 }
 .form__state--err {
   border-left-color: #A33B3B;
@@ -938,6 +943,7 @@ p { margin: 0; text-wrap: pretty; }
 .form__state a { color: inherit; }
 
 .field--check label {
+  font-family: var(--sans);
   display: flex;
   align-items: flex-start;
   gap: 10px;
@@ -954,4 +960,22 @@ p { margin: 0; text-wrap: pretty; }
   margin: 2px 0 0;
   flex: none;
   accent-color: var(--accent);
+}
+
+/* ---- iletişim kanalları: WhatsApp öncelikli ---- */
+.chan--wa {
+  font-weight: 600;
+}
+.chan__hint {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-top: 3px;
+  font-weight: 400;
+}
+.chan--wa .chan__hint {
+  color: #2C7A57;
 }
