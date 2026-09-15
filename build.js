@@ -457,9 +457,9 @@ function buildContact() {
         <div class="deflist">
           <div class="deflist__row"><span class="deflist__k">Ünvan</span><span class="deflist__v">${esc(site.legalName)}</span></div>
           <div class="deflist__row"><span class="deflist__k">Adres</span><span class="deflist__v">${esc(c.address)}</span></div>
-          <div class="deflist__row"><span class="deflist__k">Telefon</span><span class="deflist__v"><a href="${c.phoneHref}">${esc(c.phone)}</a></span></div>
+          <div class="deflist__row"><span class="deflist__k">WhatsApp</span><span class="deflist__v"><a class="chan chan--wa" href="${waLink('Merhaba, mboyapi.com üzerinden yazıyorum. Şu konuda bilgi almak istiyorum:')}" rel="noopener">${esc(c.phone)}<span class="chan__hint">en hızlı yanıt</span></a></span></div>
           <div class="deflist__row"><span class="deflist__k">E-posta</span><span class="deflist__v"><a href="mailto:${c.email}">${esc(c.email)}</a></span></div>
-          <div class="deflist__row"><span class="deflist__k">WhatsApp</span><span class="deflist__v"><a href="${waLink('Merhaba, mboyapi.com üzerinden yazıyorum. Şu konuda bilgi almak istiyorum:')}" rel="noopener">Mesaj gönderin</a></span></div>
+          <div class="deflist__row"><span class="deflist__k">Telefon</span><span class="deflist__v">${esc(c.phone)}<span class="chan__hint">hafta içi 09:00 – 18:00</span></span></div>
         </div>
 
         <div class="colhead mt-6">Çalışma saatleri</div>
@@ -493,7 +493,7 @@ function buildContact() {
           <div class="form__row">
             <div class="field">
               <label for="eposta">E-posta</label>
-              <input id="eposta" name="eposta" type="email" required autocomplete="email">
+              <input id="eposta" name="email" type="email" required autocomplete="email">
             </div>
             <div class="field">
               <label for="telefon">Telefon</label>
@@ -535,14 +535,30 @@ function buildContact() {
             b.textContent = "Gönderiliyor\u2026";
             d.hidden = true;
             d.className = "form__state";
+            var veri = new FormData(f);
+            // Bal küpü alanı: botlar doldurur, insanlar görmez. Tarayıcı otomatik
+            // doldurma bunu yanlışlıkla doldurabildiği için kontrolü burada
+            // yapıyoruz ve alanı Formspree'ye hiç göndermiyoruz — böylece gerçek
+            // bir talep yanlışlıkla spam sayılıp sessizce kaybolmuyor.
+            var tuzak = String(veri.get("_gotcha") || "").trim();
+            veri.delete("_gotcha");
+            if (tuzak) {
+              f.reset();
+              d.innerHTML = '<strong>Talebiniz bize ulaştı.\u2009\u2713</strong> En kısa sürede dönüş yapacağız.';
+              d.className = "form__state form__state--ok";
+              d.hidden = false;
+              b.textContent = eski;
+              b.disabled = false;
+              return;
+            }
             fetch(f.action, {
               method: "POST",
-              body: new FormData(f),
+              body: veri,
               headers: { Accept: "application/json" }
             }).then(function (r) {
               if (!r.ok) throw new Error(r.status);
               f.reset();
-              d.textContent = "Talebiniz bize ulaştı. En kısa sürede dönüş yapacağız.";
+              d.innerHTML = '<strong>Talebiniz bize ulaştı.\u2009\u2713</strong> En kısa sürede dönüş yapacağız. Acil bir işse WhatsApp\u2019tan da yazabilirsiniz.';
               d.className = "form__state form__state--ok";
               d.hidden = false;
               b.textContent = eski;
