@@ -1,0 +1,6 @@
+# Üretilen çıktılar — derlemeyle yeniden oluşur, depoda tutulmaz.
+dist/
+preview/
+artifact/
+node_modules/
+.DS_Store
