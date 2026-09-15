@@ -11,7 +11,7 @@ import { services, serviceClosing } from "./content/services.js";
 import { projects, featuredProjects } from "./content/projects.js";
 import { home, about, contact } from "./content/pages.js";
 import { articles, templates, templatesIntro, templatesDisclaimer } from "./content/documents.js";
-import { projectImages, imgUrl } from "./content/images.js";
+import { projectImages, imgUrl, serviceImages } from "./content/images.js";
 import { forms } from "./content/forms.js";
 import { page, sectionHead, specList, checklist, esc } from "./lib/layout.js";
 
@@ -42,7 +42,7 @@ function buildHome() {
       <h1>${esc(home.title)}</h1>
       <p class="lead hero__lead">${esc(home.lead)}</p>
       <div class="hero__actions">
-        <a class="btn" href="/iletisim/">Keşif İste</a>
+        <a class="btn" href="/kesif-iste/">Keşif İste</a>
         <a class="btn btn--ghost" href="/projeler/">Referans projeler</a>
       </div>
       <div class="facts">
@@ -439,45 +439,13 @@ function buildAbout() {
 
 /* ------------------------------------------------------------------ iletişim */
 
-function buildContact() {
-  const c = site.contact;
-  const body = `
-  <section class="pagehead">
-    <div class="wrap">
-      <span class="label">İletişim</span>
-      <h1>${esc(contact.title)}</h1>
-      <p class="lead">${esc(contact.lead)}</p>
-    </div>
-  </section>
+/* ------------------------------------------------------------------ talep formu */
 
-  <section class="section">
-    <div class="wrap contact-grid">
-      <div>
-        <div class="colhead">Ofis ve iletişim</div>
-        <div class="deflist">
-          <div class="deflist__row"><span class="deflist__k">Ünvan</span><span class="deflist__v">${esc(site.legalName)}</span></div>
-          <div class="deflist__row"><span class="deflist__k">Adres</span><span class="deflist__v">${esc(c.address)}</span></div>
-          <div class="deflist__row"><span class="deflist__k">WhatsApp</span><span class="deflist__v"><a class="chan chan--wa" href="${waLink('Merhaba, mboyapi.com üzerinden yazıyorum. Şu konuda bilgi almak istiyorum:')}" rel="noopener">${esc(c.phone)}<span class="chan__hint">en hızlı yanıt</span></a></span></div>
-          <div class="deflist__row"><span class="deflist__k">E-posta</span><span class="deflist__v"><a href="mailto:${c.email}">${esc(c.email)}</a></span></div>
-          <div class="deflist__row"><span class="deflist__k">Telefon</span><span class="deflist__v">${esc(c.phone)}<span class="chan__hint">hafta içi 09:00 – 18:00</span></span></div>
-        </div>
-
-        <div class="colhead mt-6">Çalışma saatleri</div>
-        <div class="deflist">
-          ${c.hours
-            .map(
-              ([k, v]) =>
-                `<div class="deflist__row"><span class="deflist__k">${esc(k)}</span><span class="deflist__v">${esc(v)}</span></div>`
-            )
-            .join("\n          ")}
-        </div>
-      </div>
-
-      <div>
-        <div class="colhead">Keşif ve teklif talebi</div>
-        <p class="prose" style="margin-bottom:26px;color:var(--ink-2)">${esc(contact.formIntro)}</p>
+// Form iki sayfada da kullanılıyor: iletişimde ikincil, keşif sayfasında asıl iş.
+function requestForm(konu) {
+  return `
         <form class="form" id="kesifForm" method="POST" action="https://formspree.io/f/mkjgwblv" accept-charset="UTF-8">
-          <input type="hidden" name="_subject" value="mboyapi.com — yeni keşif / teklif talebi">
+          <input type="hidden" name="_subject" value="${esc(konu)}">
           <input type="hidden" name="_language" value="tr">
           <p class="hpot" aria-hidden="true"><label>Bu alanı boş bırakın<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
           <div class="form__row">
@@ -532,7 +500,7 @@ function buildContact() {
             e.preventDefault();
             b.disabled = true;
             var eski = b.textContent;
-            b.textContent = "Gönderiliyor\u2026";
+            b.textContent = "Gönderiliyor…";
             d.hidden = true;
             d.className = "form__state";
             var veri = new FormData(f);
@@ -544,7 +512,7 @@ function buildContact() {
             veri.delete("_gotcha");
             if (tuzak) {
               f.reset();
-              d.innerHTML = '<strong>Talebiniz bize ulaştı.\u2009\u2713</strong> En kısa sürede dönüş yapacağız.';
+              d.innerHTML = '<strong>Talebiniz bize ulaştı. ✓</strong> En kısa sürede dönüş yapacağız.';
               d.className = "form__state form__state--ok";
               d.hidden = false;
               b.textContent = eski;
@@ -558,20 +526,177 @@ function buildContact() {
             }).then(function (r) {
               if (!r.ok) throw new Error(r.status);
               f.reset();
-              d.innerHTML = '<strong>Talebiniz bize ulaştı.\u2009\u2713</strong> En kısa sürede dönüş yapacağız. Acil bir işse WhatsApp\u2019tan da yazabilirsiniz.';
+              d.innerHTML = '<strong>Talebiniz bize ulaştı. ✓</strong> En kısa sürede dönüş yapacağız. Acil bir işse WhatsApp’tan da yazabilirsiniz.';
               d.className = "form__state form__state--ok";
               d.hidden = false;
               b.textContent = eski;
             }).catch(function () {
-              d.innerHTML = 'Mesaj gönderilemedi. L\u00fctfen tekrar deneyin ya da do\u011frudan ' +
-                '<a href="mailto:${site.email}">${site.email}</a> adresine yaz\u0131n.';
+              d.innerHTML = 'Mesaj gönderilemedi. Lütfen tekrar deneyin ya da doğrudan ' +
+                '<a href="mailto:${site.contact.email}">${site.contact.email}</a> adresine yazın.';
               d.className = "form__state form__state--err";
               d.hidden = false;
               b.textContent = eski;
             }).then(function () { b.disabled = false; });
           });
         })();
-        </script>
+        </script>`;
+}
+
+/* ------------------------------------------------------------------ keşif iste */
+
+function buildRequest() {
+  const c = site.contact;
+
+  const cards = services
+    .map((s) => {
+      const img = serviceImages[s.slug];
+      const shot = img
+        ? `<span class="scard__shot"><img src="${img.local}" alt="${esc(img.alt)}" width="720" height="480" decoding="async"></span>`
+        : `<span class="scard__shot scard__shot--plain"><span>${esc(s.index)}</span></span>`;
+      return `<a class="scard" href="/hizmetler/${s.slug}/">
+            ${shot}
+            <span class="scard__body">
+              <span class="scard__no">${esc(s.index)}</span>
+              <span class="scard__title">${esc(s.title)}</span>
+              <span class="scard__text">${esc(s.summary)}</span>
+            </span>
+          </a>`;
+    })
+    .join("\n          ");
+
+  const body = `
+  <section class="pagehead">
+    <div class="wrap">
+      <span class="label">Keşif İste</span>
+      <h1>Projenizi birlikte değerlendirelim</h1>
+      <p class="lead">${esc(contact.formIntro)}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap request-grid">
+      <div>
+        <div class="colhead">Keşif ve teklif talebi</div>
+        ${requestForm("mboyapi.com — keşif / teklif talebi")}
+      </div>
+
+      <aside class="request-aside">
+        <div class="colhead">Yazmayı tercih ederseniz</div>
+        <div class="channels">
+          <a class="channel channel--primary" href="${waLink('Merhaba, mboyapi.com üzerinden keşif talebi için yazıyorum.')}" rel="noopener">
+            <span class="channel__tag">WhatsApp · en hızlı yanıt</span>
+            <span class="channel__value">${esc(c.phone)}</span>
+            <span class="channel__note">Form doldurmak istemiyorsanız doğrudan yazın; mesajınız hazır açılır.</span>
+          </a>
+          <a class="channel" href="mailto:${c.email}">
+            <span class="channel__tag">E-posta</span>
+            <span class="channel__value">${esc(c.email)}</span>
+            <span class="channel__note">Proje eki, keşif notu veya çizim gönderecekseniz buradan.</span>
+          </a>
+        </div>
+        <div class="officecard">
+          <div class="officecard__name">${esc(site.legalName)}</div>
+          <p class="officecard__addr">${esc(c.address)}</p>
+          <div class="hours">
+            ${c.hours
+              .map(
+                ([k, v]) =>
+                  `<div class="hours__item"><span class="hours__k">${esc(k)}</span><span class="hours__v">${esc(v)}</span></div>`
+              )
+              .join("\n            ")}
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap">
+      ${sectionHead(
+        "Hizmetler",
+        "Hangi başlıkta destek istediğinizden emin değilseniz",
+        "Aşağıdaki başlıklara göz atın. Formda “hizmet” alanını boş bırakabilirsiniz — konuyu birlikte netleştiririz."
+      )}
+      <div class="scards">
+          ${cards}
+      </div>
+    </div>
+  </section>`;
+
+  emit(
+    "/kesif-iste/",
+    page({
+      title: `Keşif İste | ${site.name}`,
+      description:
+        "Projeniz için keşif ve teklif talebi gönderin. Elektrik, mekanik, otomasyon, yangın güvenliği, devreye alma ve bakım başlıklarında MBO Yapı Sistem'e ulaşın.",
+      path: "/kesif-iste/",
+      body,
+      hideCta: true,
+    })
+  );
+}
+
+/* ------------------------------------------------------------------ iletişim */
+
+function buildContact() {
+  const c = site.contact;
+
+  const body = `
+  <section class="pagehead">
+    <div class="wrap">
+      <span class="label">İletişim</span>
+      <h1>${esc(contact.title)}</h1>
+      <p class="lead">${esc(contact.lead)}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap contact-grid">
+      <div>
+        <div class="colhead">Doğrudan ulaşın</div>
+
+        <div class="channels">
+          <a class="channel channel--primary" href="${waLink('Merhaba, mboyapi.com üzerinden yazıyorum. Şu konuda bilgi almak istiyorum:')}" rel="noopener">
+            <span class="channel__tag">WhatsApp · en hızlı yanıt</span>
+            <span class="channel__value">${esc(c.phone)}</span>
+            <span class="channel__note">Yazın, konuyu birlikte netleştirelim. Mesajınız hazır yazılı açılır.</span>
+          </a>
+          <a class="channel" href="mailto:${c.email}">
+            <span class="channel__tag">E-posta</span>
+            <span class="channel__value">${esc(c.email)}</span>
+            <span class="channel__note">Dosya, keşif notu veya proje eki göndereceksiniz buradan.</span>
+          </a>
+        </div>
+
+        <div class="officecard">
+          <div class="officecard__name">${esc(site.legalName)}</div>
+          <p class="officecard__addr">${esc(c.address)}</p>
+          <div class="officecard__line">
+            <span class="officecard__k">Telefon</span>
+            <span>${esc(c.phone)}</span>
+          </div>
+          <div class="hours">
+            ${c.hours
+              .map(
+                ([k, v]) =>
+                  `<div class="hours__item"><span class="hours__k">${esc(k)}</span><span class="hours__v">${esc(v)}</span></div>`
+              )
+              .join("\n            ")}
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="colhead">Keşif ve teklif talebi</div>
+        <a class="askcard" href="/kesif-iste/">
+          <span class="askcard__k">Keşif İste</span>
+          <span class="askcard__h">Projenizi birlikte değerlendirelim</span>
+          <span class="askcard__t">Keşif talebi formunu doldurun; hangi başlıkta destek istediğinizden emin değilseniz hizmetlerimize de aynı sayfadan göz atabilirsiniz.</span>
+          <span class="askcard__go">Talep formuna git &rarr;</span>
+        </a>
+        <p class="prose" style="margin-top:22px;color:var(--ink-2);font-size:15px">
+          Acil bir arıza veya duruş söz konusuysa formu beklemeden WhatsApp'tan yazın. Mesai saatleri içinde aynı gün dönüş yapıyoruz.
+        </p>
       </div>
     </div>
   </section>`;
@@ -874,6 +999,7 @@ function build404() {
           <li><a href="/hizmetler/">Hizmetler</a> — elektrik, mekanik, otomasyon ve yangın güvenliği başlıkları</li>
           <li><a href="/projeler/">Projeler</a> — görev aldığımız referans işler</li>
           <li><a href="/dokuman-merkezi/">Doküman Merkezi</a> — teknik yazılar, saha formları ve şablonlar</li>
+          <li><a href="/kesif-iste/">Keşif İste</a> — proje ve teklif talebi formu</li>
           <li><a href="/iletisim/">İletişim</a> — doğrudan bize ulaşın</li>
         </ul>
       </div>
@@ -943,6 +1069,7 @@ function build() {
   buildDocuments();
   buildForms();
   buildContact();
+  buildRequest();
 
   build404();
 
