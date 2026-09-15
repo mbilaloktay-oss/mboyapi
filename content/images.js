@@ -107,3 +107,19 @@ export const logo = {
   local: "/mbo-logo.png",
   alt: "MBO Yapı Sistem logosu",
 };
+
+/**
+ * Hizmet kartı görselleri. Anahtar yoksa kart, fotoğrafsız tipografik
+ * biçimde çizilir — boşluk gibi değil, bilinçli bir tercih gibi durur.
+ */
+export const serviceImages = {
+  "elektrik-taahhut-guc-sistemleri": { local: "/gorseller/hizmet/elektrik-taahhut-guc-sistemleri.jpg", alt: "Kapalı otopark aydınlatma ve güç tesisatı" },
+  "mekanik-hvac-sistemleri":         { local: "/gorseller/hizmet/mekanik-hvac-sistemleri.jpg", alt: "Çatı katında klima santralleri ve dış üniteler" },
+  "proje-tasarimi-muhendislik":      { local: "/gorseller/hizmet/proje-tasarimi-muhendislik.jpg", alt: "Proje maketi" },
+  "test-devreye-alma":               { local: "/gorseller/hizmet/test-devreye-alma.jpg", alt: "Kontrol odasında devreye alma çalışması" },
+  "teknik-danismanlik-denetim":      { local: "/gorseller/hizmet/teknik-danismanlik-denetim.jpg", alt: "Teknik danışmanlık toplantısı" },
+  "magaza-kafe-fit-out":             { local: "/gorseller/hizmet/magaza-kafe-fit-out.jpg", alt: "Mağaza ve kafe fit-out uygulaması" },
+  "endustriyel-ekipman-yedek-parca": { local: "/gorseller/hizmet/endustriyel-ekipman-yedek-parca.jpg", alt: "Yedek parça deposu" },
+  "periyodik-bakim-tesis-isletmesi": { local: "/gorseller/hizmet/periyodik-bakim-tesis-isletmesi.jpg", alt: "Tesis bakım turu" },
+  // "bms-zayif-akim-yangin-guvenligi": fotoğraf bekleniyor.
+};

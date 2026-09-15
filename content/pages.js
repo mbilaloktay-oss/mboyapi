@@ -110,6 +110,6 @@ export const cta = {
   title: "Projeniz için teknik bir çözüm ortağı mı arıyorsunuz?",
   text:
     "Elektrik, mekanik, ince işler, otomasyon ve yedek parça temini konularında ihtiyaçlarınızı birlikte analiz edelim. Uygulama, devreye alma veya teknik danışmanlık için bizimle iletişime geçin.",
-  primary: { label: "Keşif İste", href: "/iletisim/" },
+  primary: { label: "Keşif İste", href: "/kesif-iste/" },
   secondary: { label: "Projelerimizi İnceleyin", href: "/projeler/" },
 };
