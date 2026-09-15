@@ -6,7 +6,7 @@ import { mkdirSync, writeFileSync, readFileSync, cpSync, rmSync, existsSync } fr
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { site } from "./content/site.js";
+import { site, waLink } from "./content/site.js";
 import { services, serviceClosing } from "./content/services.js";
 import { projects, featuredProjects } from "./content/projects.js";
 import { home, about, contact } from "./content/pages.js";
@@ -459,7 +459,7 @@ function buildContact() {
           <div class="deflist__row"><span class="deflist__k">Adres</span><span class="deflist__v">${esc(c.address)}</span></div>
           <div class="deflist__row"><span class="deflist__k">Telefon</span><span class="deflist__v"><a href="${c.phoneHref}">${esc(c.phone)}</a></span></div>
           <div class="deflist__row"><span class="deflist__k">E-posta</span><span class="deflist__v"><a href="mailto:${c.email}">${esc(c.email)}</a></span></div>
-          <div class="deflist__row"><span class="deflist__k">WhatsApp</span><span class="deflist__v"><a href="${c.whatsapp}" rel="noopener">Mesaj gönderin</a></span></div>
+          <div class="deflist__row"><span class="deflist__k">WhatsApp</span><span class="deflist__v"><a href="${waLink('Merhaba, mboyapi.com üzerinden yazıyorum. Şu konuda bilgi almak istiyorum:')}" rel="noopener">Mesaj gönderin</a></span></div>
         </div>
 
         <div class="colhead mt-6">Çalışma saatleri</div>
@@ -476,7 +476,10 @@ function buildContact() {
       <div>
         <div class="colhead">Keşif ve teklif talebi</div>
         <p class="prose" style="margin-bottom:26px;color:var(--ink-2)">${esc(contact.formIntro)}</p>
-        <form class="form" method="POST" action="https://formspree.io/f/FORM_ID_BURAYA">
+        <form class="form" id="kesifForm" method="POST" action="https://formspree.io/f/mkjgwblv" accept-charset="UTF-8">
+          <input type="hidden" name="_subject" value="mboyapi.com — yeni keşif / teklif talebi">
+          <input type="hidden" name="_language" value="tr">
+          <p class="hpot" aria-hidden="true"><label>Bu alanı boş bırakın<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
           <div class="form__row">
             <div class="field">
               <label for="ad">Ad</label>
@@ -508,10 +511,51 @@ function buildContact() {
             <label for="mesaj">Mesajınız / proje detayı</label>
             <textarea id="mesaj" name="mesaj" required></textarea>
           </div>
-          <div>
-            <button class="btn" type="submit">Gönder</button>
+          <div class="field field--check">
+            <label for="wa">
+              <input id="wa" name="whatsapp_ok" type="checkbox" value="Evet, WhatsApp'tan dönülebilir">
+              <span>WhatsApp'tan dönebilirsiniz — acil talepler için en hızlısı budur.</span>
+            </label>
+          </div>
+          <div class="form__send">
+            <button class="btn" type="submit" id="kesifGonder">Gönder</button>
+            <p class="form__state" id="kesifDurum" role="status" aria-live="polite" hidden></p>
           </div>
         </form>
+        <script>
+        (function () {
+          var f = document.getElementById("kesifForm");
+          var d = document.getElementById("kesifDurum");
+          var b = document.getElementById("kesifGonder");
+          if (!f || !d || !b || !window.fetch) return;   // fetch yoksa form normal şekilde gönderilir
+          f.addEventListener("submit", function (e) {
+            e.preventDefault();
+            b.disabled = true;
+            var eski = b.textContent;
+            b.textContent = "Gönderiliyor\u2026";
+            d.hidden = true;
+            d.className = "form__state";
+            fetch(f.action, {
+              method: "POST",
+              body: new FormData(f),
+              headers: { Accept: "application/json" }
+            }).then(function (r) {
+              if (!r.ok) throw new Error(r.status);
+              f.reset();
+              d.textContent = "Talebiniz bize ulaştı. En kısa sürede dönüş yapacağız.";
+              d.className = "form__state form__state--ok";
+              d.hidden = false;
+              b.textContent = eski;
+            }).catch(function () {
+              d.innerHTML = 'Mesaj gönderilemedi. L\u00fctfen tekrar deneyin ya da do\u011frudan ' +
+                '<a href="mailto:${site.email}">${site.email}</a> adresine yaz\u0131n.';
+              d.className = "form__state form__state--err";
+              d.hidden = false;
+              b.textContent = eski;
+            }).then(function () { b.disabled = false; });
+          });
+        })();
+        </script>
       </div>
     </div>
   </section>`;
