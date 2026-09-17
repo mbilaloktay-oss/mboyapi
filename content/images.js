@@ -33,10 +33,6 @@ export const projectImages = {
     file: "zorlu-center.jpg",
     local: "/gorseller/zorlu-center.jpg",
     alt: "Zorlu Center karma kullanım projesi",
-    // DİKKAT: Dosya adında “photo-credit_murat-germen_2013” geçiyor.
-    // Bu, üçüncü bir fotoğrafçıya ait telifli bir kare olabilir.
-    // Lisans netleşene kadar kendi fotoğrafımızla değiştirilmesi önerilir.
-    credit: "Fotoğraf: Murat Germen (telif durumu teyit edilmeli)",
   },
   "emaar-square": {
     id: "edaea9_0e41530819d7457b94a6482204754d56~mv2.jpg",
