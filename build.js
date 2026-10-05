@@ -13,6 +13,8 @@ import { home, about, contact } from "./content/pages.js";
 import { articles, templates, templatesIntro, templatesDisclaimer } from "./content/documents.js";
 import { projectImages, imgUrl, serviceImages } from "./content/images.js";
 import { forms } from "./content/forms.js";
+import { systems, systemsIntro, defaultRole } from "./content/sistemler.js";
+import { kvkk } from "./content/kvkk.js";
 import { page, sectionHead, specList, checklist, esc } from "./lib/layout.js";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
@@ -78,7 +80,25 @@ function buildHome() {
 
   <section class="section section--alt">
     <div class="wrap">
-      ${sectionHead("02 — Referanslar", "İmzamızı taşıyan projeler", home.projectsIntro)}
+      ${sectionHead("02 — Çözüm paketleri", "Sistem Çözümleri", systemsIntro.lead)}
+      <div class="grid-services">
+        ${systems
+          .map(
+            (s) => `<a class="svc" href="/sistemler/${s.slug}/">
+          <span class="svc__num">${esc(s.index)}</span>
+          <span class="svc__title">${esc(s.title)}</span>
+          <span class="svc__text">${esc(s.summary)}</span>
+          <span class="svc__more">Paketi incele →</span>
+        </a>`
+          )
+          .join("\n        ")}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      ${sectionHead("03 — Referanslar", "Kurucumuzun Görev Aldığı Projeler", home.projectsIntro)}
       <div class="index">
         <div class="index__head">
           <span>No</span><span>Proje</span><span>Tür</span><span>Üstlenilen görev</span><span></span>
@@ -98,9 +118,9 @@ function buildHome() {
     </div>
   </section>
 
-  <section class="section section--tight">
+  <section class="section section--alt section--tight">
     <div class="wrap">
-      ${sectionHead("03 — Yaklaşım", "Neden MBO Yapı Sistem?")}
+      ${sectionHead("04 — Yaklaşım", "Neden MBO Yapı Sistem?")}
       ${specList(about.why.items)}
     </div>
   </section>`;
@@ -245,6 +265,196 @@ function buildServices() {
       })
     );
   }
+}
+
+/* ------------------------------------------------------------------ sistem çözümleri */
+
+function buildSystems() {
+  const c = site.contact;
+  const tag = (s) => `[TEKLIF-WEB] ${s.title}`;
+  const mail = (s) =>
+    `mailto:${c.email}?subject=${encodeURIComponent(tag(s))}&body=${encodeURIComponent("Merhaba, " + s.title + " paketi için teklif almak istiyorum.\n\nTesis türü / konum:\nKısa açıklama:\n")}`;
+
+  const cards = (list) =>
+    list
+      .map(
+        (s) => `<a class="svc" href="/sistemler/${s.slug}/">
+          <span class="svc__num">${esc(s.index)}</span>
+          <span class="svc__title">${esc(s.title)}</span>
+          <span class="svc__text">${esc(s.summary)}</span>
+          <span class="svc__more">Paketi incele →</span>
+        </a>`
+      )
+      .join("\n        ");
+
+  const hub = `
+  <section class="pagehead">
+    <div class="wrap">
+      <span class="label">Çözüm paketleri</span>
+      <h1>${esc(systemsIntro.title)}</h1>
+      <p class="lead">${esc(systemsIntro.lead)}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid-services">
+        ${cards(systems)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt section--tight">
+    <div class="wrap prose">
+      <h2>Markalar</h2>
+      <p class="lead mt-4">${esc(systemsIntro.brands)}</p>
+    </div>
+  </section>`;
+
+  emit(
+    "/sistemler/",
+    page({
+      title: `Sistem Çözümleri | Otopark, Pano, Otomasyon, Şarj, GES | ${site.name}`,
+      description:
+        "Akıllı otopark, MCC/DDC/kompanzasyon panoları, PLC otomasyon malzemeleri, elektrikli araç şarj, güneş enerjisi, peyzaj otomasyonu ve villa güvenlik çözüm paketleri.",
+      path: "/sistemler/",
+      body: hub,
+    })
+  );
+
+  for (const s of systems) {
+    const others = systems.filter((x) => x.slug !== s.slug).slice(0, 3);
+    const role = s.role || defaultRole;
+    const wa = waLink(`Merhaba, mboyapi.com üzerinden ${s.title} paketi için teklif almak istiyorum.`);
+
+    const body = `
+  <section class="pagehead">
+    <div class="wrap">
+      <span class="label">Sistem Çözümleri ${esc(s.index)} — ${esc(s.title)}</span>
+      <h1>${esc(s.pageTitle)}</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap prose">
+      <p class="lead">${esc(s.lead)}</p>
+    </div>
+  </section>
+
+  <section class="section section--alt section--tight">
+    <div class="wrap">
+      ${sectionHead("Kapsam", "Pakette neler var?")}
+      ${checklist(s.items)}
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      ${sectionHead("Kullanım alanları", "Nerelerde kullanılır?")}
+      ${checklist(s.areas)}
+    </div>
+  </section>
+
+  <section class="section section--alt section--tight">
+    <div class="wrap">
+      ${sectionHead("MBO'nun rolü", "Süreçte neleri üstleniyoruz?")}
+      ${checklist(role)}
+      <p class="prose mt-4">${esc(systemsIntro.brands)}</p>
+    </div>
+  </section>
+  ${
+    s.links && s.links.length
+      ? `
+  <section class="section section--tight">
+    <div class="wrap">
+      ${sectionHead("İlgili içerik", "Daha fazla bilgi")}
+      <div class="index">
+        ${s.links
+          .map(
+            (l) => `<a class="index__row" href="${l.href}"><span class="index__name">${esc(l.label)}</span><span class="index__arrow">→</span></a>`
+          )
+          .join("\n        ")}
+      </div>
+    </div>
+  </section>`
+      : ""
+  }
+
+  <section class="section section--alt section--tight">
+    <div class="wrap">
+      ${sectionHead("Teklif iste", `${s.title} için teklif alın`, "Tesis türünü ve ihtiyacınızı kısaca yazmanız yeterli; size dönüş yapıp keşif ve teklif sürecini birlikte planlayalım.")}
+      <div class="channels">
+        <a class="channel channel--primary" href="${mail(s)}">
+          <span class="channel__tag">E-posta · teklif iste</span>
+          <span class="channel__value">${esc(c.email)}</span>
+          <span class="channel__note">Konu satırı hazır gelir: ${esc(tag(s))}</span>
+        </a>
+        <a class="channel" href="${wa}" rel="noopener">
+          <span class="channel__tag">WhatsApp</span>
+          <span class="channel__value">${esc(c.phone)}</span>
+          <span class="channel__note">Mesajınız hazır yazılı açılır.</span>
+        </a>
+        <a class="channel" href="${c.phoneHref}">
+          <span class="channel__tag">Telefon</span>
+          <span class="channel__value">${esc(c.phone)}</span>
+          <span class="channel__note">${esc(c.hours[0][0])} ${esc(c.hours[0][1])}</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      ${sectionHead("Diğer", "Diğer çözüm paketleri")}
+      <div class="grid-services">
+        ${cards(others)}
+      </div>
+    </div>
+  </section>`;
+
+    emit(
+      `/sistemler/${s.slug}/`,
+      page({
+        title: `${s.pageTitle} | ${site.name}`,
+        description: s.description,
+        path: `/sistemler/${s.slug}/`,
+        body,
+        hideCta: true,
+      })
+    );
+  }
+}
+
+/* ------------------------------------------------------------------ kvkk */
+
+function buildKvkk() {
+  const body = `
+  <section class="pagehead">
+    <div class="wrap">
+      <span class="label">Gizlilik</span>
+      <h1>${esc(kvkk.title)}</h1>
+      <p class="lead">${esc(kvkk.lead)}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap prose">
+      ${kvkk.sections
+        .map((x) => `<h2>${esc(x.heading)}</h2>\n      ${x.paragraphs.map((t) => `<p>${esc(t)}</p>`).join("\n      ")}`)
+        .join("\n      ")}
+    </div>
+  </section>`;
+
+  emit(
+    "/kvkk/",
+    page({
+      title: `${kvkk.title} | ${site.name}`,
+      description: "MBO Yapı Sistem iletişim ve teklif formlarında işlenen kişisel verilere ilişkin aydınlatma metni.",
+      path: "/kvkk/",
+      body,
+      hideCta: true,
+    })
+  );
 }
 
 /* ------------------------------------------------------------------ projeler */
@@ -483,6 +693,12 @@ function requestForm(konu) {
             <label for="wa">
               <input id="wa" name="whatsapp_ok" type="checkbox" value="Evet, WhatsApp'tan dönülebilir">
               <span>WhatsApp'tan dönebilirsiniz — acil talepler için en hızlısı budur.</span>
+            </label>
+          </div>
+          <div class="field field--check">
+            <label for="kvkk">
+              <input id="kvkk" name="kvkk_onay" type="checkbox" value="Aydınlatma metnini okudum" required>
+              <span><a href="/kvkk/" target="_blank" rel="noopener">KVKK aydınlatma metnini</a> okudum.</span>
             </label>
           </div>
           <div class="form__send">
@@ -1064,12 +1280,14 @@ function build() {
 
   buildHome();
   buildServices();
+  buildSystems();
   buildProjects();
   buildAbout();
   buildDocuments();
   buildForms();
   buildContact();
   buildRequest();
+  buildKvkk();
 
   build404();
 

@@ -101,6 +101,7 @@ export const contact = {
     "Mağaza / kafe fit-out",
     "Endüstriyel ekipman ve yedek parça",
     "Periyodik bakım ve tesis işletmesi",
+    "Sistem çözümleri (otopark, pano, şarj, güneş enerjisi vb.)",
     "Diğer",
   ],
 };

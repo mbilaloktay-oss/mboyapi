@@ -18,6 +18,8 @@ Netlify'a veya Vercel'e konabilir. Derleme adımı, paket kurulumu gerekmez.
       site.js         şirket bilgileri, iletişim, menü
       pages.js        ana sayfa, hakkımızda, iletişim metinleri
       services.js     9 hizmet
+      sistemler.js    7 sistem çözümü paketi (hub + paket sayfaları)
+      kvkk.js         KVKK aydınlatma metni (taslak, avukat onayı gerekir)
       projects.js     12 referans proje
       documents.js    Doküman Merkezi yazıları ve şablonları
       images.js       fotoğraflar (bkz. aşağıdaki not)
