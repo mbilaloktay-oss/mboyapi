@@ -1234,3 +1234,30 @@ p { margin: 0; text-wrap: pretty; }
   font-weight: 600;
   color: var(--accent);
 }
+
+/* sistem çözümleri: çalışma şeması ve sık sorulanlar */
+.flow { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); counter-reset: none; }
+.flow__node { position: relative; display: grid; gap: 6px; align-content: start; padding: 18px 18px 20px; background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--accent); }
+.flow__node:not(:last-child)::after { content: "\2192"; position: absolute; right: -11px; top: 50%; transform: translateY(-50%); width: 22px; text-align: center; background: var(--paper); color: var(--accent-deep); font-family: var(--mono); z-index: 1; }
+.flow__no { font-family: var(--mono); font-size: 12px; color: var(--mark); letter-spacing: .06em; }
+.flow__t { font-weight: 600; color: var(--ink); }
+.flow__s { color: var(--ink-2); font-size: 14.5px; line-height: 1.5; }
+@media (max-width: 720px) { .flow__node:not(:last-child)::after { display: none; } }
+
+.faq { border-top: 1px solid var(--rule); max-width: 78ch; }
+.faq__item { border-bottom: 1px solid var(--rule); padding: 16px 0; }
+.faq__item summary { cursor: pointer; font-weight: 600; color: var(--ink); list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary::after { content: "+"; font-family: var(--mono); color: var(--accent-deep); }
+.faq__item[open] summary::after { content: "\2212"; }
+.faq__item p { margin: 12px 0 0; color: var(--ink-2); }
+
+/* sistem çözümleri: üst görsel ve KVKK taahhüt kutusu */
+.sysphoto { margin: 0; border: 1px solid var(--rule); background: var(--paper-3); }
+.sysphoto img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 7; object-fit: cover; }
+@media (max-width: 720px) { .sysphoto img { aspect-ratio: 3 / 2; } }
+.assure { border: 1px solid var(--rule); border-left: 4px solid var(--accent); background: var(--accent-wash); padding: 24px 26px; max-width: 78ch; }
+.assure__h { font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+.assure p { margin: 0 0 14px; color: var(--ink-2); }
+.assure__link { margin: 14px 0 0 !important; }
+.assure__link a { color: var(--accent-deep); font-weight: 500; }

@@ -13,6 +13,32 @@ export const systemsIntro = {
     "Paketlerde Siemens, ABB, Schneider Electric gibi önde gelen markalarla ve ilgili alanın öncü üreticileriyle temin ve uygulama yapıyoruz. Marka seçimi projenin ihtiyacına ve bütçesine göre birlikte belirlenir.",
 };
 
+// KVKK taahhüdü: kişisel veri işleyen paketlerde (kamera, plaka, kullanıcı kaydı) ve hub sayfasında gösterilir.
+// Not: "ürün KVKK uyumludur" gibi bir uygunluk iddiası değil, MBO'nun çalışma taahhüdüdür.
+// Kapsamın ayrıntısı müşterinin hukuk danışmanıyla netleştirilir.
+export const kvkkAssurance = {
+  title: "Kişisel verilerin korunması taahhüdümüz",
+  text:
+    "Kamera, plaka tanıma, geçiş ve kullanıcı kaydı gibi kişisel veri işleyebilen sistemlerde KVKK kurallarına uygun çalışmayı taahhüt ederiz. Tasarımı ve devreye almayı, kişisel verilerin korunmasını esas alarak yaparız; kapsamın ayrıntısını sizin hukuk danışmanınızla birlikte netleştiririz.",
+  points: [
+    "Yalnızca amaca gerekli veriyi işleyecek şekilde yapılandırma",
+    "Kayıtlara erişimin yetkilendirilmesi ve parola/ağ güvenliği",
+    "Saklama süresi ve silme ayarlarının hukuki görüşe göre yapılması",
+    "Aydınlatma/uyarı metni ve levhaları için teknik destek",
+  ],
+};
+
+// Her paket sayfasının üst görseli (Adobe Stock lisanslı). alt: erişilebilirlik metni.
+export const systemPhotos = {
+  "akilli-otopark": "Kapalı otoparkta park halindeki araç",
+  "pano-cozumleri": "Elektrik dağıtım ve kontrol panoları sırası",
+  "otomasyon-malzemeleri": "Mühendis tabletle otomasyon sistemini izliyor",
+  "elektrikli-arac-sarj": "Otoparkta şarj olan elektrikli araç",
+  "gunes-enerjisi": "Teknisyenler güneş paneli montajı yapıyor",
+  "peyzaj-otomasyonu": "Çim alanda otomatik sulama sistemi",
+  "villa-guvenlik": "Cepheye monte güvenlik kamerası",
+};
+
 // Her paketin altında ortak "MBO'nun rolü" listesi (paket kendi rolünü verirse o kullanılır).
 export const defaultRole = [
   "Keşif ve ihtiyaç analizi",
@@ -26,6 +52,7 @@ export const defaultRole = [
 export const systems = [
   {
     slug: "akilli-otopark",
+    kvkk: true,
     index: "01",
     title: "Akıllı Otopark",
     pageTitle: "Akıllı Otopark Sistemi: Plaka Tanıma, Doluluk Yönlendirme ve Ödeme",
@@ -99,6 +126,7 @@ export const systems = [
   },
   {
     slug: "elektrikli-arac-sarj",
+    kvkk: true,
     index: "04",
     title: "Elektrikli Araç Şarj",
     pageTitle: "Elektrikli Araç Şarj Sistemleri: Site, İş Yeri ve Otopark",
@@ -163,6 +191,7 @@ export const systems = [
   },
   {
     slug: "villa-guvenlik",
+    kvkk: true,
     index: "07",
     title: "Villa Güvenlik",
     pageTitle: "Villa Güvenlik Sistemleri: Kamera, CCTV ve Plaka Tanıma",

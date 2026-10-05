@@ -13,8 +13,9 @@ import { home, about, contact } from "./content/pages.js";
 import { articles, templates, templatesIntro, templatesDisclaimer } from "./content/documents.js";
 import { projectImages, imgUrl, serviceImages } from "./content/images.js";
 import { forms } from "./content/forms.js";
-import { systems, systemsIntro, defaultRole } from "./content/sistemler.js";
+import { systems, systemsIntro, defaultRole, kvkkAssurance, systemPhotos } from "./content/sistemler.js";
 import { kvkk } from "./content/kvkk.js";
+import { systemDetails, detailNotes } from "./content/sistemler-detay.js";
 import { page, sectionHead, specList, checklist, esc } from "./lib/layout.js";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
@@ -269,6 +270,21 @@ function buildServices() {
 
 /* ------------------------------------------------------------------ sistem çözümleri */
 
+function kvkkBox() {
+  return `<section class="section section--tight">
+    <div class="wrap">
+      <div class="assure">
+        <div class="assure__h">${esc(kvkkAssurance.title)}</div>
+        <p>${esc(kvkkAssurance.text)}</p>
+        <ul class="checklist">
+          ${kvkkAssurance.points.map((x) => `<li>${esc(x)}</li>`).join("\n          ")}
+        </ul>
+        <p class="assure__link"><a href="/kvkk/">KVKK aydınlatma metni →</a></p>
+      </div>
+    </div>
+  </section>`;
+}
+
 function buildSystems() {
   const c = site.contact;
   const tag = (s) => `[TEKLIF-WEB] ${s.title}`;
@@ -309,7 +325,8 @@ function buildSystems() {
       <h2>Markalar</h2>
       <p class="lead mt-4">${esc(systemsIntro.brands)}</p>
     </div>
-  </section>`;
+  </section>
+  ${kvkkBox()}`;
 
   emit(
     "/sistemler/",
@@ -325,6 +342,7 @@ function buildSystems() {
   for (const s of systems) {
     const others = systems.filter((x) => x.slug !== s.slug).slice(0, 3);
     const role = s.role || defaultRole;
+    const d = systemDetails[s.slug] || {};
     const wa = waLink(`Merhaba, mboyapi.com üzerinden ${s.title} paketi için teklif almak istiyorum.`);
 
     const body = `
@@ -335,11 +353,36 @@ function buildSystems() {
     </div>
   </section>
 
+  <section class="section section--tight">
+    <div class="wrap">
+      <figure class="sysphoto">
+        <img src="/gorseller/sistemler/${s.slug}.jpg" alt="${esc(systemPhotos[s.slug] || s.title)}" width="1688" height="1125" decoding="async">
+      </figure>
+    </div>
+  </section>
+
   <section class="section">
     <div class="wrap prose">
       <p class="lead">${esc(s.lead)}</p>
     </div>
   </section>
+
+  ${
+    d.flow
+      ? `<section class="section section--tight">
+    <div class="wrap">
+      ${sectionHead("Çalışma şeması", "Sistem nasıl çalışır?")}
+      <ol class="flow">
+        ${d.flow
+          .map(
+            (n, i) => `<li class="flow__node"><span class="flow__no">${String(i + 1).padStart(2, "0")}</span><span class="flow__t">${esc(n.t)}</span><span class="flow__s">${esc(n.s)}</span></li>`
+          )
+          .join("\n        ")}
+      </ol>
+    </div>
+  </section>`
+      : ""
+  }
 
   <section class="section section--alt section--tight">
     <div class="wrap">
@@ -354,6 +397,27 @@ function buildSystems() {
       ${checklist(s.areas)}
     </div>
   </section>
+
+  ${
+    d.trends
+      ? `<section class="section section--alt section--tight">
+    <div class="wrap">
+      ${sectionHead("Güncel gelişmeler", "Yapay zekâ ve güncel eğilimler", detailNotes.trendsNote)}
+      ${specList(d.trends)}
+    </div>
+  </section>`
+      : ""
+  }
+  ${
+    d.scenarios
+      ? `<section class="section section--tight">
+    <div class="wrap">
+      ${sectionHead("Örnek uygulamalar", "Nasıl kullanılabilir?", detailNotes.scenariosNote)}
+      ${specList(d.scenarios)}
+    </div>
+  </section>`
+      : ""
+  }
 
   <section class="section section--alt section--tight">
     <div class="wrap">
@@ -379,6 +443,23 @@ function buildSystems() {
   </section>`
       : ""
   }
+
+  ${
+    d.faq
+      ? `<section class="section section--tight">
+    <div class="wrap">
+      ${sectionHead("Sık sorulanlar", "Merak edilenler")}
+      <div class="faq">
+        ${d.faq
+          .map((f) => `<details class="faq__item"><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`)
+          .join("\n        ")}
+      </div>
+    </div>
+  </section>`
+      : ""
+  }
+
+  ${s.kvkk ? kvkkBox() : ""}
 
   <section class="section section--alt section--tight">
     <div class="wrap">
