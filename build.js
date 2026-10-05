@@ -16,6 +16,7 @@ import { forms } from "./content/forms.js";
 import { systems, systemsIntro, defaultRole, kvkkAssurance, systemPhotos } from "./content/sistemler.js";
 import { kvkk } from "./content/kvkk.js";
 import { systemDetails, detailNotes } from "./content/sistemler-detay.js";
+import { systemExtras, benefitsNote } from "./content/sistemler-avantaj.js";
 import { page, sectionHead, specList, checklist, esc } from "./lib/layout.js";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
@@ -342,7 +343,7 @@ function buildSystems() {
   for (const s of systems) {
     const others = systems.filter((x) => x.slug !== s.slug).slice(0, 3);
     const role = s.role || defaultRole;
-    const d = systemDetails[s.slug] || {};
+    const d = { ...(systemDetails[s.slug] || {}), ...(systemExtras[s.slug] || {}) };
     const wa = waLink(`Merhaba, mboyapi.com üzerinden ${s.title} paketi için teklif almak istiyorum.`);
 
     const body = `
@@ -364,8 +365,20 @@ function buildSystems() {
   <section class="section">
     <div class="wrap prose">
       <p class="lead">${esc(s.lead)}</p>
+      ${(d.overview || []).map((t) => `<p>${esc(t)}</p>`).join("")}
     </div>
   </section>
+
+  ${
+    d.benefits
+      ? `<section class="section section--alt section--tight">
+    <div class="wrap">
+      ${sectionHead("Avantajlar ve konfor", "Size ne sağlar?", benefitsNote)}
+      ${specList(d.benefits)}
+    </div>
+  </section>`
+      : ""
+  }
 
   ${
     d.flow
