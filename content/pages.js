@@ -2,19 +2,17 @@
 
 export const home = {
   eyebrow: "Elektromekanik Taahhüt ve Mühendislik",
-  title: "Elektromekanik ve otomasyonda küresel standartlar",
+  title: "Elektrik, mekanik ve otomasyon sistemlerinde mühendislik, devreye alma ve bakım",
   lead:
-    "AVM, otel, endüstriyel tesis ve mega projeler için uluslararası standartlarda anahtar teslim elektrik, mekanik ve akıllı bina (BMS) çözümleri sunuyoruz. Mühendislik vizyonumuzla geleceği inşa ediyoruz.",
-  // Hero altındaki künye şeridi — sayılar gerçek içerikten türetilir.
+    "AVM, otel ve endüstriyel tesisler için projede esas alınan standart ve şartnamelere göre anahtar teslim elektrik, mekanik ve akıllı bina (BMS) çözümleri sunuyoruz. Mühendislik vizyonumuzla geleceği inşa ediyoruz.",
+  // Hero altındaki künye şeridi.
   facts: [
-    { label: "Referans proje", value: "12" },
-    { label: "Uzmanlık alanı", value: "9" },
     { label: "Çalışılan standart", value: "IEC · EN · NFPA · ASHRAE" },
   ],
   servicesIntro:
     "AVM, plaza, otel, rezidans ve endüstriyel tesislerde elektrik, mekanik, ince işler ve otomasyon projelerinde uçtan uca mühendislik hizmetleri sunuyoruz.",
   projectsIntro:
-    "Kurucumuzun şantiye şefliği, teknik ofis ve bina otomasyonu yöneticiliği görevleriyle içinde yer aldığı mega projelerden bir seçki.",
+    "Ekibimizin önceki görevlerinde yer aldığı projelerden bir seçki.",
 };
 
 export const about = {
@@ -24,7 +22,7 @@ export const about = {
       heading: "Biz Kimiz?",
       paragraphs: [
         "MBO Yapı Sistem; alışveriş merkezleri, rezidanslar, oteller ve endüstriyel tesisler için elektrik, mekanik ve zayıf akım sistemlerinin tasarım, uygulama (Shop-Drawing) ve devreye alma süreçlerinde uzmanlaşmış, yenilikçi bir mühendislik ve taahhüt firmasıdır.",
-        "Firmamızın vizyonu; kurucumuz Elektrik ve Elektronik Mühendisi Mehmet Bilal Oktay’ın Zorlu Center, Emaar Square AVM, Metropol İstanbul ve Medine Havalimanı gibi uluslararası standartlara sahip mega projelerde üstlendiği şantiye şefliği, teknik ofis ve bina otomasyon (BMS) yöneticiliği tecrübeleri üzerine inşa edilmiştir.",
+        "Firmamızın vizyonu; kurucumuz Elektrik ve Elektronik Mühendisi Mehmet Bilal Oktay’ın Zorlu Center, Emaar Square AVM, Metropol İstanbul ve Medine Havalimanı projelerinde üstlendiği şantiye şefliği, teknik ofis ve bina otomasyon (BMS) yöneticiliği tecrübeleri üzerine inşa edilmiştir.",
         "Bir projenin sıfırdan inşasından, yatırımcı için en kritik evre olan “işletmeye geçiş” (Commissioning) aşamasına kadar edindiğimiz bu güçlü mühendislik birikimini; bugün işverenlerimize tek elden, güvenilir, şeffaf ve çözüm odaklı bir ortaklık sunmak için kullanıyoruz.",
       ],
     },
@@ -35,7 +33,7 @@ export const about = {
       {
         term: "Uygulanabilirlik (Saha Mühendisliği)",
         text:
-          "Masa başı teorik projelerle yetinmez; her tasarımı şantiye dinamiklerine ve bakım standartlarına uygun “Uygulama Projelerine” (Shop-Drawing) dönüştürerek sahada hatasız uygularız.",
+          "Masa başı teorik projelerle yetinmez; her tasarımı şantiye dinamiklerine ve bakım standartlarına uygun “Uygulama Projelerine” (Shop-Drawing) dönüştürerek sahada uygularız.",
       },
       {
         term: "Şeffaflık ve Finansal Disiplin",
@@ -45,23 +43,18 @@ export const about = {
       {
         term: "Sistem Entegratörlüğü ve Tek Muhatap",
         text:
-          "Elektrik, mekanik, yangın güvenliği ve otomasyon disiplinlerini tek bir dijital akılda (BMS) birleştiririz. Çok disiplinli yapımız sayesinde sahada disiplinler arası çakışmaları (clash) sıfıra indirerek yatırımcıya “tek muhatap konforu” sağlarız.",
+          "Elektrik, mekanik, yangın güvenliği ve otomasyon disiplinlerini tek bir dijital akılda (BMS) birleştiririz. Çok disiplinli yapımız sayesinde disiplinler arası çakışmaları (clash) sahaya çıkmadan çözerek yatırımcıya “tek muhatap konforu” sağlarız.",
       },
       {
-        term: "Küresel Standartlar",
+        term: "Projede Esas Alınan Standartlar",
         text:
-          "Projelerimizi sadece bugünün değil, geleceğin teknolojilerine ve uluslararası (IEC, EN, FIDIC, NFPA) normlara uygun şekilde tasarlar ve devreye alırız.",
+          "Projelerimizi, projede esas alınan standart ve şartnamelere göre tasarlar ve devreye alırız.",
       },
     ],
   },
   why: {
     heading: "Neden MBO Yapı Sistem?",
     items: [
-      {
-        term: "Mühendislik Disiplini",
-        text:
-          "Sıradan bir taşeron mantığıyla değil; mega projelerde pişmiş, uluslararası standartlara (NFPA, IEC) hakim bir mühendislik aklıyla çalışırız.",
-      },
       {
         term: "Bütçe ve Zaman Optimizasyonu",
         text:
@@ -75,14 +68,14 @@ export const about = {
       {
         term: "Sürdürülebilir Kalite",
         text:
-          "Sadece projeyi teslim edip çıkmaz; “işletmeye geçiş” (Commissioning) sürecini hatasız tamamlayarak, tesisin yıllarca sorunsuz nefes almasını sağlarız.",
+          "Sadece projeyi teslim edip çıkmaz; “işletmeye geçiş” (Commissioning) sürecini planlı testler ve kayıtlı kabulle tamamlayarak, tesisin yıllarca nefes almasını sağlarız.",
       },
     ],
   },
   vision: {
     heading: "Mühendislik Vizyonumuz",
     text:
-      "Karmaşık mega projelerde; elektrik, mekanik ve otomasyon disiplinlerini tek bir aklın yönetiminde birleştirerek sektörün en güvenilir “çözüm ortağı” olmak. Uluslararası standartlarda (NFPA, IEC, FIDIC), enerji verimli ve kendi kendini yönetebilen akıllı yapılar inşa ederek geleceğin mühendislik kalitesini bugünden sunmak.",
+      "Karmaşık projelerde; elektrik, mekanik ve otomasyon disiplinlerini tek bir aklın yönetiminde birleştirerek “çözüm ortağı” olmak. Projede esas alınan standart ve şartnamelere göre, enerji verimli ve kendi kendini yönetebilen akıllı yapılar inşa ederek geleceğin mühendislik kalitesini bugünden sunmak.",
   },
 };
 
@@ -90,7 +83,7 @@ export const contact = {
   title: "İletişim",
   lead: "Projeniz veya tesisiniz için bizimle iletişime geçin.",
   formIntro:
-    "Aşağıdaki formu, proje talebiniz, keşif isteğiniz veya teknik danışmanlık talepleriniz için doldurabilirsiniz. Size en kısa sürede geri dönüş yapacağız.",
+    "Aşağıdaki formu, proje talebiniz, keşif isteğiniz veya teknik danışmanlık talepleriniz için doldurabilirsiniz. Size 1 iş günü içinde dönüş yapacağız.",
   serviceOptions: [
     "Elektrik taahhüt ve zayıf akım",
     "Mekanik tesisat ve HVAC",

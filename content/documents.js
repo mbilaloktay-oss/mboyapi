@@ -7,9 +7,9 @@
 export const templates = [
   {
     no: "01",
-    title: "Taşeron / Tedarikçi Sözleşmesi Şablonu",
+    title: "Yüklenici / Tedarikçi Sözleşmesi Şablonu",
     text:
-      "Elektrik ve mekanik taşeron/tedarikçi anlaşmalarında kullanılan 19 maddelik kapsamlı sözleşme yapısı. Avrupa/FIDIC terim karşılıkları tablosu içerir (Geçici Kabul, Hakediş, Garanti Süresi vb.).",
+      "Elektrik ve mekanik yüklenici/tedarikçi anlaşmalarında kullanılan 19 maddelik kapsamlı sözleşme yapısı. Avrupa/FIDIC terim karşılıkları tablosu içerir (Geçici Kabul, Hakediş, Garanti Süresi vb.).",
     file: "MBO_Taseron_Sozlesmesi_Sablonu.pdf",
     localUrl: "/dokumanlar/MBO_Taseron_Sozlesmesi_Sablonu.pdf",
     url: "/dokumanlar/MBO_Taseron_Sozlesmesi_Sablonu.pdf",
@@ -18,7 +18,7 @@ export const templates = [
     no: "02",
     title: "Taraflar Sorumlulukları Tablosu (Ek-4)",
     text:
-      "Sözleşmenin ekinde yer alan, işveren ile taşeron arasındaki gider ve sorumluluk paylaşımını netleştiren kontrol listesi (özlük hakları, şantiye mobilizasyonu, malzeme/ekipman, genel işler).",
+      "Sözleşmenin ekinde yer alan, işveren ile yüklenici arasındaki gider ve sorumluluk paylaşımını netleştiren kontrol listesi (özlük hakları, şantiye mobilizasyonu, malzeme/ekipman, genel işler).",
     file: "MBO_Sorumluluk_Tablosu_Sablonu.pdf",
     localUrl: "/dokumanlar/MBO_Sorumluluk_Tablosu_Sablonu.pdf",
     url: "/dokumanlar/MBO_Sorumluluk_Tablosu_Sablonu.pdf",
@@ -44,7 +44,7 @@ export const templates = [
 ];
 
 export const templatesIntro =
-  "MBO Yapı Sistem olarak AVM, otel, rezidans ve endüstriyel tesislerde yürüttüğümüz elektromekanik projelerden edindiğimiz tecrübeyi sektörle paylaşmak istiyoruz. Aşağıdaki şablonlar, büyük ölçekli projelerde kullanılan pratikleri temel alır; kendi projenizde referans olarak veya doğrudan uyarlayarak kullanabilirsiniz.";
+  "AVM, otel, rezidans ve havalimanı projelerinde görev almış mühendislik kadromuzun saha tecrübesini sektörle paylaşmak istiyoruz. Aşağıdaki şablonlar, projelerde kullanılan pratikleri temel alır; kendi projenizde referans olarak veya doğrudan uyarlayarak kullanabilirsiniz.";
 
 export const templatesDisclaimer =
   "Bu şablonlar genel bilgilendirme amaçlıdır ve hukuki/teknik danışmanlık yerine geçmez. Projenize özel uyarlama için bizimle iletişime geçebilirsiniz.";
@@ -81,7 +81,7 @@ export const articles = [
     slug: "devreye-alma-commissioning-sureci",
     date: "2026-09-15",
     topic: "Devreye alma",
-    title: "Devreye Alma (Commissioning): Bir Tesis Nasıl Sorunsuz İşletmeye Alınır?",
+    title: "Devreye Alma (Commissioning): Bir Tesis Nasıl Kontrollü İşletmeye Alınır?",
     summary:
       "Projenin en kritik evresi, sistemlerin tek tek çalıştığının değil, birlikte doğru davrandığının kanıtlandığı aşamadır.",
     blocks: [
@@ -118,9 +118,9 @@ export const articles = [
       { t: "h2", x: "Villa, apartman ve site için farklı yaklaşımlar" },
       { t: "p", x: "Müstakil bir villada tek kullanıcılı bir AC şarj ünitesi kurmak nispeten basittir. Apartman ve sitelerde ise ortak kullanım alanlarında birden fazla kullanıcının aynı altyapıyı paylaşması, yük dengeleme ve ayrı sayaçlama gerektirir — bu noktada bina yönetimiyle birlikte planlama yapıyoruz." },
       { t: "h2", x: "Standartlara uygunluk ve devreye alma" },
-      { t: "p", x: "Tüm kurulumlarımızda IEC/EN standartlarına uygun kaçak akım koruma (RCD Tip B), doğru kablo kesiti ve topraklama uyguluyor; kurulum sonrası test ve devreye alma raporuyla teslim ediyoruz." },
+      { t: "p", x: "Kurulumlarda kaçak akım koruması, doğru kablo kesiti ve topraklama proje ve üretici gereklilikleri esas alınarak uygulanır; kurulum sonrası test ve devreye alma raporuyla teslim edilir." },
       { t: "h2", x: "Neden MBO Yapı Sistem?" },
-      { t: "p", x: "Zorlu Center, Emaar Square ve Metropol İstanbul gibi büyük ölçekli projelerde elektrik altyapısı ve devreye alma tecrübesi kazanmış bir mühendislik ekibi olarak, EV şarj kurulumunu da sadece bir cihaz montajı değil, binanızın elektrik altyapısının bir parçası olarak ele alıyoruz." },
+      { t: "p", x: "AVM, otel ve havalimanı projelerinde görev almış mühendislik kadromuzla, EV şarj kurulumunu da sadece bir cihaz montajı değil, binanızın elektrik altyapısının bir parçası olarak ele alıyoruz." },
       { t: "h2", x: "Kurulum süreci adım adım nasıl işliyor?" },
       { t: "p", x: "Sürecimiz dört ana adımdan oluşur: Önce sahada keşif yaparak mevcut pano kapasitesini ve sayaç abonelik gücünü ölçüyoruz. Ardından şarj ünitesinin gücüne (7,4 kW, 11 kW veya 22 kW) göre kablo güzergahını ve koruma cihazlarını belirlediğimiz bir uygulama projesi hazırlıyoruz. Üçüncü adımda montaj ve kablolama işlemlerini gerçekleştiriyor, son olarak kaçak akım testleri ve fonksiyon testleriyle sistemi devreye alıp size teknik rapor halinde teslim ediyoruz." },
       { t: "h2", x: "AC ve DC şarj üniteleri arasındaki fark" },
@@ -164,17 +164,17 @@ export const articles = [
     summary:
       "Bir binanın elektrik altyapısı ne kadar iyi tasarlanmış olursa olsun, doğru pano sistemleri ve yangın güvenliği önlemleri olmadan tam anlamıyla güvenli sayılmaz.",
     blocks: [
-      { t: "p", x: "Bir binanın elektrik altyapısı ne kadar iyi tasarlanmış olursa olsun, doğru pano sistemleri ve yangın güvenliği önlemleri olmadan tam anlamıyla güvenli sayılmaz. Elektrik panoları, yangın algılama/ihbar sistemleri ve hassas alanlar için gazlı söndürme sistemleri, MBO'nun mega proje tecrübesinden gelen üç temel uzmanlık alanı." },
+      { t: "p", x: "Bir binanın elektrik altyapısı ne kadar iyi tasarlanmış olursa olsun, doğru pano sistemleri ve yangın güvenliği önlemleri olmadan tam anlamıyla güvenli sayılmaz. Elektrik panoları, yangın algılama/ihbar sistemleri ve hassas alanlar için gazlı söndürme sistemleri, AVM, otel ve havalimanı projelerinde görev almış mühendislik kadromuzun üç temel uzmanlık alanı." },
       { t: "h2", x: "Elektrik panoları" },
       { t: "p", x: "Alçak gerilim (AG) ve orta gerilim (OG) dağıtım panolarının tasarımı, üretim koordinasyonu, montajı ve devreye alınmasını IEC/EN standartlarına uygun şekilde yürütüyoruz — AVM'lerden endüstriyel tesislere kadar farklı ölçekte projelerde uyguladığımız bir alan." },
       { t: "h2", x: "Yangın algılama ve ihbar sistemleri" },
-      { t: "p", x: "Erken uyarı, binanın ve içindekilerin güvenliği için kritik önemde. Zorlu Center ve Emaar Square gibi projelerde yangın algılama, acil anons ve entegre güvenlik sistemlerinin tasarımı ve devreye alınmasında yer aldık." },
+      { t: "p", x: "Erken uyarı, binanın ve içindekilerin güvenliği için kritik önemde. Bu sistemlerde doğru tasarım kadar, devreye almada yapılan senaryo testleri de belirleyicidir." },
       { t: "h2", x: "Gazlı söndürme sistemleri" },
       { t: "p", x: "Sunucu/data odaları, elektrik trafo ve pano odaları, arşiv gibi suyla söndürülemeyecek hassas alanlar için gazlı söndürme sistemleri kritik bir koruma katmanıdır. Bu sistemlerin doğru gaz tipi seçimi, oda sızdırmazlığı ve devreye alma testleriyle birlikte planlanması gerekir — bu bütünsel yaklaşımı projelerimizde uyguluyoruz." },
       { t: "h2", x: "Neden bütünsel bir yaklaşım önemli?" },
       { t: "p", x: "Pano, yangın algılama ve söndürme sistemlerini ayrı ayrı değil, binanın elektrik ve otomasyon altyapısının bir parçası olarak birlikte tasarladığımızda, hem uyumluluk hem de işletme aşamasında daha az sorun ortaya çıkıyor. MBO Yapı Sistem olarak mühendislik, uygulama ve devreye almayı tek elden yürütüyoruz." },
       { t: "h2", x: "Pano seçiminde dikkat edilmesi gerekenler" },
-      { t: "p", x: "Doğru pano seçimi; beklenen yük büyüklüğü, kısa devre akımı dayanımı, koruma sınıfı (IP derecesi) ve gelecekteki kapasite artışına uygunluk gibi kriterlere göre yapılır. Özellikle büyük ölçekli projelerde panonun yalnızca bugünün ihtiyacına değil, tesisin genişleme senaryolarına da uygun tasarlanması, ileride maliyetli revizyonların önüne geçer." },
+      { t: "p", x: "Doğru pano seçimi; beklenen yük büyüklüğü, kısa devre akımı dayanımı, koruma sınıfı (IP derecesi) ve gelecekteki kapasite artışına uygunluk gibi kriterlere göre yapılır. Özellikle genişleme beklenen projelerde panonun yalnızca bugünün ihtiyacına değil, tesisin genişleme senaryolarına da uygun tasarlanması, ileride maliyetli revizyonların önüne geçer." },
       { t: "h2", x: "Yangın algılama sistemi türleri" },
       { t: "p", x: "Nokta tipi dedektörler küçük ve orta ölçekli alanlarda yaygın kullanılırken; hassas alanlarda (data odaları, arşivler) çok daha erken uyarı veren aspirasyonlu (havadan numune alan) algılama sistemleri tercih edilir. Doğru sistem seçimi, alanın kullanım amacına, hava sirkülasyonuna ve olası yangın kaynaklarının niteliğine göre belirlenmelidir." },
       { t: "h2", x: "Gazlı söndürme sistemleri ne zaman tercih edilir?" },

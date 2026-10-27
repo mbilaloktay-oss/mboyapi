@@ -9,9 +9,9 @@ export const services = [
     title: "Elektrik Taahhüt & Zayıf Akım",
     pageTitle: "Elektrik Taahhüt ve Kesintisiz Güç Sistemleri",
     summary:
-      "Mimari projelere tam uyumlu olarak; AG/OG güç dağıtımı, kesintisiz enerji (UPS) ve tüm zayıf akım (Yangın, CCTV, Data) sistemlerini anahtar teslim kuruyoruz.",
+      "Mimari projeyle koordineli olarak; AG güç dağıtımı, kesintisiz enerji (UPS) ve tüm zayıf akım (Yangın, CCTV, Data) sistemlerini anahtar teslim kuruyoruz.",
     lead:
-      "Mega projelerin kalbi, kesintisiz ve güvenli enerji altyapısıdır. MBO Yapı Sistem olarak, dizayn ofislerden gelen konsept elektrik projelerini sahanın dinamiklerine uygun uygulama projelerine (Shop-Drawing) çeviriyor; otel, finans merkezi ve endüstriyel tesislerin güç altyapılarını sıfır hata toleransıyla hayata geçiriyoruz. Butik projelerde (Fit-Out) ise yük hesaplamalarından as-built teslimine kadar uçtan uca taahhüt hizmeti sunuyoruz.",
+      "Her tesisin kalbi, kesintisiz ve güvenli enerji altyapısıdır. MBO Yapı Sistem olarak, dizayn ofislerden gelen konsept elektrik projelerini sahanın dinamiklerine uygun uygulama projelerine (Shop-Drawing) çeviriyor; otel, finans merkezi ve endüstriyel tesislerin güç altyapılarını test ve kabul kriterleriyle hayata geçiriyoruz. Butik projelerde (Fit-Out) ise yük hesaplamalarından as-built teslimine kadar uçtan uca taahhüt hizmeti sunuyoruz.",
     points: [
       {
         term: "Uygulama Mühendisliği ve Koordinasyon",
@@ -19,9 +19,9 @@ export const services = [
           "Mekanik ve mimari gruplarla sahada oluşabilecek çakışmaları (clash) önceden tespit ederek; pano dizaynları ve kablo taşıma (tava/busbar) güzergahlarının optimize edilmesi.",
       },
       {
-        term: "AG / OG ve Dağıtım Sistemleri",
+        term: "AG ve Dağıtım Sistemleri",
         text:
-          "Uluslararası normlara (IEC, EN) uygun Orta Gerilim trafo merkezleri, ana/tali dağıtım panoları ve kompanzasyon sistemlerinin anahtar teslim kurulumu.",
+          "Projede esas alınan standart ve şartnamelere göre ana/tali dağıtım panoları ve kompanzasyon sistemlerinin kurulumu.",
       },
       {
         term: "Kesintisiz Enerji (UPS & Jeneratör)",
@@ -44,7 +44,7 @@ export const services = [
     summary:
       "AVM, otel ve tesislerin iklimlendirme (HVAC) ve mekanik altyapılarını tek bir dijital akılda (BMS) birleştirerek, enerji verimli akıllı sistemler olarak uyguluyoruz.",
     lead:
-      "Büyük ölçekli yapıların doğru “nefes alması”, enerji verimliliğinin sağlanması ve konfor şartlarının korunması üst düzey bir mekanik mühendislik gerektirir. MBO Yapı Sistem olarak; AVM, otel ve endüstriyel tesisler gibi mega projelerde, mevcut dizaynları sahaya tam uyumlu uygulama projelerine (Shop-Drawing) dönüştürüyor ve kusursuz bir şekilde taahhüt ediyoruz. Zincir restoran ve mağaza (Fit-Out) projelerinde ise sıfırdan kapasite hesaplarını ve mekanik projelendirmeyi bizzat yaparak anahtar teslim çözümler sunuyoruz.",
+      "Yapıların doğru “nefes alması”, enerji verimliliğinin sağlanması ve konfor şartlarının korunması üst düzey bir mekanik mühendislik gerektirir. MBO Yapı Sistem olarak; AVM, otel ve endüstriyel tesislerde, mevcut dizaynları sahaya tam uyumlu uygulama projelerine (Shop-Drawing) dönüştürüyor ve taahhüt ediyoruz. Zincir restoran ve mağaza (Fit-Out) projelerinde ise sıfırdan kapasite hesaplarını ve mekanik projelendirmeyi bizzat yaparak anahtar teslim çözümler sunuyoruz.",
     points: [
       {
         term: "Uygulama Mühendisliği (Shop-Drawing)",
@@ -92,12 +92,12 @@ export const services = [
       {
         term: "Yangın Algılama ve Söndürme",
         text:
-          "Sistem/Server odaları için kalıntısız FM200 ve Novec gazlı söndürme çözümleri, hassas adresli yangın algılama altyapıları ve acil durum senaryolarının (asansör kuyulama, duman tahliye vb.) saha entegrasyonu.",
+          "Sistem/Server odaları için kalıntısız, üretici onaylı gazlı söndürme sistemleri (FK-5-1-12 ve inert gaz gibi), hassas adresli yangın algılama altyapıları ve acil durum senaryolarının (asansör kuyulama, duman tahliye vb.) saha entegrasyonu.",
       },
       {
         term: "IP CCTV ve Zayıf Akım Sistemleri",
         text:
-          "Tesis genelinde uçtan uca IP tabanlı güvenlik kamera sistemleri, biyometrik/kartlı geçiş kontrol altyapıları ile mega projelerin dijital omurgasını oluşturan fiber optik ve bakır (Cat6/Cat7) yapısal kablolama çözümleri.",
+          "Tesis genelinde uçtan uca IP tabanlı güvenlik kamera sistemleri, biyometrik/kartlı geçiş kontrol altyapıları ile tesisin dijital omurgasını oluşturan fiber optik ve bakır (Cat6/Cat7) yapısal kablolama çözümleri.",
       },
     ],
   },
@@ -108,9 +108,9 @@ export const services = [
     title: "Proje Tasarımı & Mühendislik",
     pageTitle: "Elektromekanik Proje Tasarımı ve Mühendislik Hizmetleri",
     summary:
-      "AVM, plaza, otel, rezidans ve endüstriyel tesisler için elektrik, mekanik ve otomasyon projelerini ulusal ve uluslararası standartlara uygun olarak tasarlıyoruz. Keşif, metraj ve maliyet analizleriyle yatırımın en doğru şekilde planlanmasını sağlıyoruz.",
+      "AVM, plaza, otel, rezidans ve endüstriyel tesisler için elektrik, mekanik ve otomasyon projelerini projede esas alınan standart ve şartnamelere göre tasarlıyoruz. Keşif, metraj ve maliyet analizleriyle yatırımın en doğru şekilde planlanmasını sağlıyoruz.",
     lead:
-      "Bir projenin sahadaki başarısı, masada yapılan mühendisliğin kalitesiyle ölçülür. MBO Yapı Sistem olarak, AVM, plaza, otel ve endüstriyel tesisler için ulusal ve uluslararası standartlara (IEC, NFPA vb.) tam uyumlu, uygulanabilir ve optimize edilmiş elektromekanik projeler tasarlıyoruz.",
+      "Bir projenin sahadaki başarısı, masada yapılan mühendisliğin kalitesiyle ölçülür. MBO Yapı Sistem olarak, AVM, plaza, otel ve endüstriyel tesisler için projede esas alınan standart ve şartnamelere göre uygulanabilir ve optimize edilmiş elektromekanik projeler tasarlıyoruz.",
     points: [
       {
         term: "Uygulanabilir Tasarım",
@@ -120,12 +120,12 @@ export const services = [
       {
         term: "Devreye Alma (Commissioning) Disiplini",
         text:
-          "Mega proje yöneticiliğinden gelen tecrübemizle; sistemlerin sadece kurulmasını değil, birbiriyle entegre ve hatasız çalışmasını (işletmeye geçiş krizlerini öngörerek) taahhüt ediyoruz.",
+          "Ekibimizin proje yöneticiliği tecrübesiyle; sistemlerin sadece kurulmasını değil, birbiriyle entegre çalışmasını planlı testler ve kayıtlı kabulle (işletmeye geçiş krizlerini öngörerek) taahhüt ediyoruz.",
       },
       {
         term: "Proaktif Kriz Yönetimi",
         text:
-          "Mimari ve mekanik/elektrik disiplinler arasındaki olası çakışmaları (clash) tasarım aşamasındayken çözüyoruz. Bu sayede sahada yaşanabilecek zaman ve bütçe kayıplarını sıfıra indiriyoruz.",
+          "Mimari ve mekanik/elektrik disiplinler arasındaki olası çakışmaları (clash) tasarım aşamasındayken çözüyoruz. Bu sayede sahada yaşanabilecek zaman ve bütçe kaybı riskini azaltıyoruz.",
       },
     ],
   },
@@ -136,9 +136,9 @@ export const services = [
     title: "Test & Devreye Alma",
     pageTitle: "Test, Devreye Alma ve İşletmeye Geçiş Yönetimi",
     summary:
-      "Kurulan sistemlerin senaryo testlerini yapıyor, otomasyon haberleşmelerini doğrulayarak tesisin sorunsuz işletmeye geçişini sağlıyoruz.",
+      "Kurulan sistemlerin senaryo testlerini yapıyor, otomasyon haberleşmelerini doğrulayarak tesisin kontrollü işletmeye geçişini sağlıyoruz.",
     lead:
-      "Bir projenin en kritik ve sancılı evresi, kağıt üzerindeki tasarımların sahada can bulduğu o ilk anlardır. MBO Yapı Sistem olarak, Zorlu ve Emaar gibi dev tesislerin işletmeye alınma süreçlerindeki tecrübemizle; elektromekanik ve otomasyon sistemlerinin uluslararası standartlara (ASHRAE, IEC) göre fonksiyonel testlerini yapıyor, tesisinizin sıfır hatayla “işletmeye geçişini” (Commissioning) sağlıyoruz.",
+      "Bir projenin en kritik ve sancılı evresi, kağıt üzerindeki tasarımların sahada can bulduğu o ilk anlardır. MBO Yapı Sistem olarak, Zorlu ve Emaar gibi dev tesislerin işletmeye alınma süreçlerindeki tecrübemizle; elektromekanik ve otomasyon sistemlerinin uluslararası standartlara (ASHRAE, IEC) göre fonksiyonel testlerini yapıyor, tesisinizin planlı testler ve kayıtlı kabulle “işletmeye geçişini” (Commissioning) sağlıyoruz.",
     points: [
       {
         term: "Fonksiyonel Senaryo Testleri",
@@ -164,12 +164,12 @@ export const services = [
     title: "Teknik Danışmanlık & Denetim",
     pageTitle: "İşveren Vekilliği, Teknik Müşavirlik ve Denetim",
     summary:
-      "Sahadaki imalatların denetlenmesi, kesin hesapların yönetilmesi ve kalite kontrol süreçlerinde işveren adına tam yetkili teknik müşavirlik sunuyoruz.",
+      "Sahadaki imalatların denetlenmesi, kesin hesapların yönetilmesi ve kalite kontrol süreçlerinde işveren adına teknik kontrol, kesin hesap ve hakediş dokümantasyonu desteği sunuyoruz.",
     lead:
-      "Yatırımınızın her kuruşunun karşılığını aldığınızdan ve projenin kalite standartlarından sapmadığından emin olmak için, işveren tarafında “tam yetkili” mühendislik aklınız oluyoruz. MBO Yapı Sistem, mega projelerdeki şeflik ve yönetim tecrübesiyle sahadaki imalatları sizin adınıza denetler, finansal ve teknik riskleri minimize eder.",
+      "Yatırımınızın her kuruşunun karşılığını aldığınızdan ve projenin kalite standartlarından sapmadığından emin olmak için, işveren tarafında teknik kontrol, kesin hesap ve hakediş dokümantasyonu desteğiniz oluyoruz. MBO Yapı Sistem, ekibimizin şeflik ve yönetim tecrübesiyle sahadaki imalatları sizin adınıza denetler, finansal ve teknik riskleri minimize eder.",
     points: [
       {
-        term: "Saha ve Taşeron Denetimi",
+        term: "Saha ve Yüklenici Denetimi",
         text:
           "Yüklenici firmaların imalatlarının ulusal/uluslararası şartnamelere ve uygulama (Shop-Drawing) projelerine uygunluğunun düzenli kontrolü.",
       },
@@ -190,12 +190,12 @@ export const services = [
     slug: "magaza-kafe-fit-out",
     index: "07",
     title: "Mağaza & Kafe Fit-Out",
-    pageTitle: "Anahtar Teslim Mağaza ve Kafe (Fit-Out) Taahhüdü",
+    pageTitle: "Mağaza ve Kafe Projeleri: Elektrik, Mekanik ve AVM Koordinasyonu",
     summary:
-      "AVM ve cadde mağazaları, restoran ve kafeler için mimari ince işler, elektrik ve mekanik imalatların tamamını tek elden, AVM yönetim onaylı olarak anahtar teslim yapıyoruz.",
+      "AVM ve cadde mağazaları, restoran ve kafeler için elektrik ve mekanik uygulamayı yönetiyor, AVM onay sürecine uygun proje ve belge düzeniyle ilerliyoruz.",
     lead:
-      "AVM veya ticari alanlardaki mağaza, restoran ve kafelerinizi en kısa sürede ticarete açıyoruz. MBO Yapı Sistem olarak, Fit-Out projelerinde sadece süreç yönetmiyor; mimari ince işler, elektrik ve mekanik (HVAC) imalatların tamamını sahada bizzat uyguluyor ve AVM yönetim onaylı olarak anahtar teslim taahhüt ediyoruz.",
-    subtitle: "AVM ve Ticari Alanlar İçin Elektromekanik ve Mimari Çözümler",
+      "AVM veya ticari alanlardaki mağaza, restoran ve kafelerinizi açılış takvimine göre planlıyoruz. MBO Yapı Sistem olarak, Fit-Out projelerinde elektrik ve mekanik (HVAC) uygulamayı yönetiyor ve AVM onay sürecine uygun proje ve belge düzeniyle ilerliyoruz.",
+    subtitle: "AVM ve Ticari Alanlar İçin Elektromekanik Çözümler",
     points: [],
   },
 
@@ -207,7 +207,7 @@ export const services = [
     summary:
       "Tesislerin kesintisiz çalışması için kritik önem taşıyan otomasyon, mekanik ve elektrik şalt malzemelerinin doğru seçimini yapıyor ve tedarik sürecini yönetiyoruz.",
     lead:
-      "Zamanın maliyet olduğu endüstriyel tesislerde ve ticari işletmelerde, kritik bileşenlerin arızalanması büyük operasyonel kayıplara yol açar. Tesisinizin kalbi olan elektromekanik ve otomasyon ekipmanlarının doğru analizini yapıyor, global tedarik ağımızla en doğru donanımı en hızlı şekilde sahaya ulaştırıyoruz.",
+      "Zamanın maliyet olduğu endüstriyel tesislerde ve ticari işletmelerde, kritik bileşenlerin arızalanması büyük operasyonel kayıplara yol açar. Tesisinizin kalbi olan elektromekanik ve otomasyon ekipmanlarının doğru analizini yapıyor, yurt içi ve yurt dışı tedarik seçeneklerimizle en doğru donanımı teslim sürelerini baştan netleştirerek sahaya ulaştırıyoruz.",
     points: [
       {
         term: "Mühendislik Destekli Seçim",
@@ -233,9 +233,9 @@ export const services = [
     title: "Periyodik Bakım & Tesis İşletmesi",
     pageTitle: "Tesis Yönetimi ve Önleyici Periyodik Bakım",
     summary:
-      "Sistemlerin ilk günkü performansıyla çalışması için proaktif önleyici bakım, iyileştirme (Capex) çalışmaları yapıyor ve profesyonel teknik işletme hizmeti sunuyoruz.",
+      "Sistemlerde performansın ölçümle izlenmesi ve korunması için proaktif önleyici bakım, iyileştirme (Capex) çalışmaları yapıyor ve profesyonel teknik işletme hizmeti sunuyoruz.",
     lead:
-      "Kurulan sistemlerin yatırım ömrünü uzatmak ve ilk günkü enerji verimiyle çalışmasını sağlamak, en az doğru projelendirme kadar önemlidir. MBO Yapı Sistem, binalarınızın “nefes almaya” devam etmesi için arıza bekleyen değil, arızayı önleyen proaktif bir bakım ve işletme altyapısı sunar.",
+      "Kurulan sistemlerin yatırım ömrünü uzatmak ve performansın ölçümle izlenmesi ve korunmasını sağlamak, en az doğru projelendirme kadar önemlidir. MBO Yapı Sistem, binalarınızın “nefes almaya” devam etmesi için arıza bekleyen değil, arızayı önleyen proaktif bir bakım ve işletme altyapısı sunar.",
     points: [
       {
         term: "Kestirimci ve Önleyici Bakım",
@@ -258,7 +258,7 @@ export const services = [
 
 // Her hizmet sayfasının altında tekrarlanan kapanış — mevcut sitedeki metin.
 export const serviceClosing = {
-  title: "Neden MBO Mühendislik?",
+  title: "Neden MBO Yapı Sistem?",
   text:
     "Sadece kurulum yapmıyor, projenin devreye alma (commissioning) ve işletme aşamasında yaşanabilecek krizleri öngörerek, şantiye ve bakım dostu “uygulanabilir” mühendislik üretiyoruz.",
 };

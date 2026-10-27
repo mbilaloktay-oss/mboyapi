@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 
 import { site, waLink } from "./content/site.js";
 import { services, serviceClosing } from "./content/services.js";
-import { projects, featuredProjects } from "./content/projects.js";
+import { projects, featuredProjects, teamProjectSlugs } from "./content/projects.js";
 import { home, about, contact } from "./content/pages.js";
 import { articles, templates, templatesIntro, templatesDisclaimer } from "./content/documents.js";
 import { projectImages, imgUrl, serviceImages } from "./content/images.js";
@@ -101,7 +101,7 @@ function buildHome() {
 
   <section class="section">
     <div class="wrap">
-      ${sectionHead("03 — Referanslar", "Kurucumuzun Görev Aldığı Projeler", home.projectsIntro)}
+      ${sectionHead("03 — Referanslar", "Ekibimizin Görev Aldığı Projeler", home.projectsIntro)}
       <div class="index">
         <div class="index__head">
           <span>No</span><span>Proje</span><span>Tür</span><span>Üstlenilen görev</span><span></span>
@@ -571,18 +571,22 @@ function buildKvkk() {
 
 function buildProjects() {
   const kinds = [...new Set(projects.map((p) => p.kind))];
+  const mboProjects = projects.filter((p) => !teamProjectSlugs.includes(p.slug));
+  const teamProjects = projects.filter((p) => teamProjectSlugs.includes(p.slug));
+  const projectList = (list) => `<div class="index">
+        <div class="index__head">
+          <span>No</span><span>Proje</span><span>Tür</span><span>Üstlenilen görev</span><span></span>
+        </div>
+        ${list.map(projectRow).join("\n        ")}
+      </div>`;
 
   const body = `
   <section class="pagehead">
     <div class="wrap">
       <span class="label">Referanslar</span>
       <h1>Projeler</h1>
-      <p class="lead">AVM ve karma kullanım projelerinden finans merkezlerine, otellerden endüstriyel tesislere; şantiye şefliği, teknik ofis ve devreye alma görevleriyle içinde yer aldığımız işler.</p>
+      <p class="lead">AVM ve karma kullanım projelerinden finans merkezlerine, otellerden endüstriyel tesislere uzanan işler; ilk bölümde MBO projeleri, ikinci bölümde ekibimizin önceki görevlerinde yer aldığı projeler.</p>
       <div class="dossier">
-        <div class="dossier__cell">
-          <div class="dossier__k">Referans sayısı</div>
-          <div class="dossier__v"><span class="num">${projects.length}</span> proje</div>
-        </div>
         <div class="dossier__cell">
           <div class="dossier__k">Proje türleri</div>
           <div class="dossier__v">${esc(kinds.join(" · "))}</div>
@@ -597,12 +601,15 @@ function buildProjects() {
 
   <section class="section">
     <div class="wrap">
-      <div class="index">
-        <div class="index__head">
-          <span>No</span><span>Proje</span><span>Tür</span><span>Üstlenilen görev</span><span></span>
-        </div>
-        ${projects.map(projectRow).join("\n        ")}
-      </div>
+      ${sectionHead("01", "MBO projeleri")}
+      ${projectList(mboProjects)}
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap">
+      ${sectionHead("02", "Ekibimizin önceki görevlerinde yer aldığı projeler")}
+      ${projectList(teamProjects)}
     </div>
   </section>`;
 
@@ -1025,7 +1032,7 @@ function buildContact() {
           <span class="askcard__go">Talep formuna git &rarr;</span>
         </a>
         <p class="prose" style="margin-top:22px;color:var(--ink-2);font-size:15px">
-          Acil bir arıza veya duruş söz konusuysa formu beklemeden WhatsApp'tan yazın. Mesai saatleri içinde aynı gün dönüş yapıyoruz.
+          Acil bir arıza veya duruş söz konusuysa formu beklemeden WhatsApp'tan yazın. Mesai saatleri içinde aynı gün dönmeyi hedefliyoruz; en geç 1 iş günü içinde dönüş yapıyoruz.
         </p>
       </div>
     </div>

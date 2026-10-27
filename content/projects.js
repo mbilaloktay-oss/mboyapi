@@ -10,7 +10,7 @@ export const projects = [
     kind: "AVM & Karma Kullanım",
     role: "Teknik ofis ve saha koordinasyonu",
     summary:
-      "Metropol İstanbul’da AVM, rezidans ve ofis bloklarının elektrik, mekanik ve zayıf akım sistemlerinde görev aldık. Teknik ofis ve saha koordinasyonu ile projelerin sahaya doğru aktarılmasını, devreye alma süreçlerinin sorunsuz tamamlanmasını sağladık.",
+      "Metropol İstanbul’da AVM, rezidans ve ofis bloklarının elektrik, mekanik ve zayıf akım sistemlerinde görev aldık. Teknik ofis ve saha koordinasyonu ile projelerin sahaya doğru aktarılmasını, devreye alma süreçlerinin tamamlanmasını sağladık.",
     body: [
       "Metropol İstanbul; AVM, ofis ve rezidans bloklarından oluşan, İstanbul’un en büyük karma kullanımlı projelerinden biridir. Projenin inşaat aşamasından işletmeye geçişine kadar elektrik, mekanik ve zayıf akım sistemlerinin kurulumu ve devreye alınmasında aktif rol üstlendik.",
       "AVM’nin ana elektrik altyapısı, yangın algılama, CCTV, kartlı geçiş, acil anons ve otopark havalandırma sistemleri ile mekanik tesisatların otomasyon altyapıları koordine edilip devreye alınmıştır. Kurucu teknik müdürlük tecrübemiz sayesinde, bugün de işletme süreçlerinde güvenilir bir teknik referans olarak destek vermeye devam ediyoruz.",
@@ -39,15 +39,15 @@ export const projects = [
     kind: "AVM & Karma Kullanım",
     role: "Keşif, metraj, dizayn ve saha yönlendirmesi",
     summary:
-      "Zorlu Center AVM altyapısında elektrik ve mekanik sistemlerin keşif, metraj ve dizayn çalışmalarında yer aldık. Altyapı tesisatlarının projeye uygun uygulanması için şantiye ekiplerini yönlendirerek işletmeye hazır, güvenli ve sürdürülebilir bir tesis ortaya çıkmasına katkı sağladık.",
+      "Zorlu Center AVM altyapısında elektrik ve mekanik sistemlerin keşif, metraj ve dizayn çalışmalarında görev almış mühendislik kadromuz, altyapı tesisatlarının projeye uygun uygulanması için şantiye ekiplerini yönlendirdi.",
     body: [
       "Zorlu Center; AVM, rezidans, ofis ve kültür-sanat alanlarını bir arada barındıran, İstanbul’un en karmaşık projelerinden biridir. Projede elektrik, mekanik ve zayıf akım sistemlerinin tasarım revizyonları, uygulama detaylarının çözülmesi ve sahadaki disiplinler arası koordinasyon süreçlerinde görev aldık.",
-      "Yüklenici ve taşeron ekiplerin imalatlarının kontrolü, şantiye ofisinde teknik dokümanların yönetimi ve sistemlerin devreye alma süreçlerinde aktif rol üstlenerek projenin güvenli ve sürdürülebilir şekilde işletmeye geçmesine katkı sunduk.",
+      "Yüklenici ekiplerin imalatlarının kontrolü, şantiye ofisinde teknik dokümanların yönetimi ve sistemlerin devreye alma süreçlerinde aktif rol üstlenerek projenin güvenli ve sürdürülebilir şekilde işletmeye geçmesine katkı sunduk.",
     ],
     scope: [
       "Elektrik ve mekanik uygulama projelerinin revizyonu",
       "AVM ve ortak alanlar için disiplinler arası (M/E/Architect) koordinasyon",
-      "Taşeron imalatlarının saha kontrolü ve detay çözümleri",
+      "Yüklenici imalatlarının saha kontrolü ve detay çözümleri",
       "Test, devreye alma ve kabul süreçlerinde teknik destek",
       "İşletmeye devir için teknik dosya ve raporların hazırlanması",
     ],
@@ -71,7 +71,7 @@ export const projects = [
       "Emaar Square projesinde AVM ve otel bloklarının elektrik ve zayıf akım altyapılarında görev aldık. Yangın algılama, acil anons, CCTV ve kartlı geçiş sistemlerinin entegrasyonunda mimari ve mekanik disiplinlerle koordineli şekilde çalıştık.",
     body: [
       "Emaar Square; alışveriş merkezi, otel ve ofis bloklarını bir arada barındıran, İstanbul’un önemli karma kullanımlı yatırımlarından biridir. Projede AVM ve otel bloklarının elektrik ve zayıf akım altyapılarının uygulama ve devreye alma süreçlerinde teknik sorumluluk üstlenerek görev aldık.",
-      "Yangın algılama, acil anons, CCTV ve kartlı geçiş sistemlerinin birbiriyle entegre çalışabilmesi için mimari ve mekanik disiplinlerle koordineli şekilde çalıştık. Saha uygulamalarının proje detaylarına uygunluğunu takip ederek, tesisin güvenli ve sorunsuz şekilde işletmeye alınmasına katkı sunduk.",
+      "Yangın algılama, acil anons, CCTV ve kartlı geçiş sistemlerinin birbiriyle entegre çalışabilmesi için mimari ve mekanik disiplinlerle koordineli şekilde çalıştık. Saha uygulamalarının proje detaylarına uygunluğunu takip ederek, tesisin güvenli şekilde işletmeye alınmasına katkı sunduk.",
     ],
     scope: [
       "AVM ve otel bloklarının elektrik altyapısında teknik sorumluluk",
@@ -116,7 +116,7 @@ export const projects = [
     summary:
       "İstanbul Finans Merkezi’ndeki VakıfBank projesinde, ortalama 5 kişilik bir ekiple tüm elektrik as-built çizimlerinin tamamlanması, hakedişlerin birleştirilmesi ve kesin hesap dosyalarının hazırlanması süreçlerini yönettik.",
     body: [
-      "İstanbul Finans Merkezi’ndeki VakıfBank Genel Müdürlük projesi, ülkemizin en büyük ölçekli finans yapılarından biridir. Projede elektrik işlerinin kesin hesap ve teknik dokümantasyon süreçlerinin yönetiminde, ortalama beş kişilik bir teknik ekibin başında sorumlu olarak görev aldık.",
+      "İstanbul Finans Merkezi’ndeki VakıfBank Genel Müdürlük projesinde elektrik işlerinin kesin hesap ve teknik dokümantasyon süreçlerinin yönetiminde, ortalama beş kişilik bir teknik ekibin başında sorumlu olarak görev aldık.",
       "Tüm elektrik as-built çizimlerinin tamamlanması, hakedişlerin birleştirilmesi ve kesin hesap dosyalarının hazırlanması çalışmalarını tek elden yönettik. İşveren ve yüklenici tarafı için eksiksiz, kontrol edilebilir ve arşivlenebilir bir dokümantasyon yapısı kurularak projenin teknik ve mali kapanışına katkı sunduk.",
     ],
     scope: [
@@ -204,7 +204,7 @@ export const projects = [
       "Big Chef, The House ve benzeri restoran–kahve konseptlerinde elektrik, mekanik ve ince işler süreçlerini yürütüyoruz. Mutfak, bar, salon ve teras alanlarında güç, aydınlatma, havalandırma ve zayıf akım sistemlerini marka standardına uygun kuruyoruz.",
     body: [
       "Restoran ve kahve zincirleri; kısa açılış süresi ve marka standardına tam uyum gerektiren, hızlı karar alınması gereken projelerdir. Big Chef, The House ve benzeri konseptlerde elektrik, mekanik ve ince işler süreçlerinin yürütülmesinde teknik sorumluluk üstlendik.",
-      "Mutfak, bar, salon ve teras alanlarında güç, aydınlatma, havalandırma ve zayıf akım sistemlerinin birlikte planlanmasını ve sahada uygulanmasını koordine ettik. Marka standartlarına ve mimari konsepte uygun çözümlerle, işletmenin ilk günden sorunsuz çalışmasını sağlayacak bir altyapı kurulmasına katkı sunduk.",
+      "Mutfak, bar, salon ve teras alanlarında güç, aydınlatma, havalandırma ve zayıf akım sistemlerinin birlikte planlanmasını ve sahada uygulanmasını koordine ettik. Marka standartlarına ve mimari konsepte uygun çözümlerle, işletmenin ilk günden çalışmasını sağlayacak bir altyapı kurulmasına katkı sunduk.",
     ],
     scope: [
       "Elektrik, mekanik ve ince işlerin tek elden koordinasyonu",
@@ -230,10 +230,10 @@ export const projects = [
     kind: "Perakende & Yeme-İçme",
     role: "Fit-out elektrik ve mekanik yürütme",
     summary:
-      "AVM içi mağaza ve cadde mağazalarında elektrik ve mekanik fit-out işlerini yürütüyoruz. Aydınlatma tasarımı, priz–data altyapısı, VRV/VRF iç ünite bağlantıları ve yangın–zayıf akım sistemlerinin mağaza konseptine entegre edilmesini sağlayarak hızlı ve sorunsuz açılışlar gerçekleştiriyoruz.",
+      "AVM içi mağaza ve cadde mağazalarında elektrik ve mekanik fit-out işlerini yürütüyoruz. Aydınlatma tasarımı, priz–data altyapısı, VRV/VRF iç ünite bağlantıları ve yangın–zayıf akım sistemlerinin mağaza konseptine entegre edilmesini sağlayarak açılış takvimine göre planlıyoruz.",
     body: [
       "AVM içi mağaza ve cadde mağazalarında elektrik ve mekanik fit-out işlerini yürütüyoruz.",
-      "Aydınlatma tasarımı, priz–data altyapısı, VRV/VRF iç ünite bağlantıları ve yangın–zayıf akım sistemlerinin mağaza konseptine entegre edilmesini sağlayarak hızlı ve sorunsuz açılışlar gerçekleştiriyoruz.",
+      "Aydınlatma tasarımı, priz–data altyapısı, VRV/VRF iç ünite bağlantıları ve yangın–zayıf akım sistemlerinin mağaza konseptine entegre edilmesini sağlayarak açılış takvimine göre planlıyoruz.",
     ],
     scope: [],
     systems: [],
@@ -305,6 +305,15 @@ export const projects = [
 
 // Ana sayfada öne çıkarılan referanslar.
 export const featuredProjects = [
+  "metropol-istanbul",
+  "zorlu-center",
+  "emaar-square",
+  "medine-havalimani",
+];
+
+// /projeler sayfasının ikinci bölümü: ekibin önceki görevlerinde yer aldığı projeler.
+// Diğer kayıtlar "MBO projeleri" bölümünde listelenir.
+export const teamProjectSlugs = [
   "metropol-istanbul",
   "zorlu-center",
   "emaar-square",
