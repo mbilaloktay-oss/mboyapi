@@ -17,12 +17,13 @@ import { systems, systemsIntro, defaultRole, kvkkAssurance, systemPhotos } from 
 import { kvkk } from "./content/kvkk.js";
 import { systemDetails, detailNotes } from "./content/sistemler-detay.js";
 import { systemExtras, benefitsNote } from "./content/sistemler-avantaj.js";
-import { page, sectionHead, specList, checklist, esc } from "./lib/layout.js";
+import { page, sectionHead, specList, checklist, esc, organizationSchema } from "./lib/layout.js";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const OUT = join(ROOT, "dist");
 
 const written = [];
+const BUILD_DATE = new Date().toISOString().slice(0, 10);
 
 function emit(path, html) {
   const file = path === "/" ? "index.html" : join(path.replace(/^\/|\/$/g, ""), "index.html");
@@ -134,6 +135,7 @@ function buildHome() {
       description: site.description,
       path: "/",
       body,
+      schema: [organizationSchema()],
     })
   );
 }
@@ -201,6 +203,7 @@ function buildServices() {
         "Elektrik taahhüt, mekanik tesisat ve HVAC, BMS ve zayıf akım, proje tasarımı, devreye alma, teknik danışmanlık, fit-out, ekipman tedariki ve periyodik bakım hizmetleri.",
       path: "/hizmetler/",
       body,
+      crumbs: [["Hizmetler"]],
     })
   );
 
@@ -264,6 +267,7 @@ function buildServices() {
         description: s.summary,
         path: `/hizmetler/${s.slug}/`,
         body: sbody,
+        crumbs: [["Hizmetler", "/hizmetler/"], [s.title]],
       })
     );
   }
@@ -337,6 +341,7 @@ function buildSystems() {
         "Akıllı otopark, MCC/DDC/kompanzasyon panoları, PLC otomasyon malzemeleri, elektrikli araç şarj, güneş enerjisi, peyzaj otomasyonu ve villa güvenlik çözüm paketleri.",
       path: "/sistemler/",
       body: hub,
+      crumbs: [["Sistem Çözümleri"]],
     })
   );
 
@@ -514,6 +519,16 @@ function buildSystems() {
         path: `/sistemler/${s.slug}/`,
         body,
         hideCta: true,
+        crumbs: [["Sistem Çözümleri", "/sistemler/"], [s.title]],
+        schema: [
+          {
+            "@type": "Service",
+            name: s.title,
+            description: s.description,
+            url: `${site.domain}/sistemler/${s.slug}/`,
+            provider: { "@type": "Organization", name: site.name, url: `${site.domain}/` },
+          },
+        ],
       })
     );
   }
@@ -547,6 +562,7 @@ function buildKvkk() {
       path: "/kvkk/",
       body,
       hideCta: true,
+      crumbs: [["KVKK Aydınlatma Metni"]],
     })
   );
 }
@@ -598,6 +614,7 @@ function buildProjects() {
         "Metropol İstanbul, Zorlu Center, Emaar Square, Medine Havalimanı, İFM VakıfBank ve Ziraat Bankası, Address Hotel İstanbul ve endüstriyel tesisler dahil referans projelerimiz.",
       path: "/projeler/",
       body,
+      crumbs: [["Projeler"]],
     })
   );
 
@@ -681,6 +698,7 @@ function buildProjects() {
         description: p.summary,
         path: `/projeler/${p.slug}/`,
         body: pbody,
+        crumbs: [["Projeler", "/projeler/"], [p.name]],
       })
     );
   }
@@ -737,6 +755,7 @@ function buildAbout() {
         "MBO Yapı Sistem; AVM, rezidans, otel ve endüstriyel tesisler için elektrik, mekanik ve zayıf akım sistemlerinde tasarım, uygulama ve devreye alma hizmetleri sunan mühendislik ve taahhüt firmasıdır.",
       path: "/hakkimizda/",
       body,
+      crumbs: [["Hakkımızda"]],
     })
   );
 }
@@ -942,6 +961,7 @@ function buildRequest() {
       path: "/kesif-iste/",
       body,
       hideCta: true,
+      crumbs: [["Keşif İste"]],
     })
   );
 }
@@ -1020,6 +1040,7 @@ function buildContact() {
       path: "/iletisim/",
       body,
       hideCta: true,
+      crumbs: [["İletişim"]],
     })
   );
 }
@@ -1123,6 +1144,7 @@ function buildDocuments() {
         "Elektromekanik projeler için ücretsiz taşeron sözleşmesi, sorumluluk tablosu, teknik şartname ve iş güvenliği talimatnamesi şablonları ile saha tecrübemizden teknik yazılar.",
       path: "/dokuman-merkezi/",
       body,
+      crumbs: [["Doküman Merkezi"]],
     })
   );
 
@@ -1172,6 +1194,7 @@ function buildDocuments() {
         description: a.summary,
         path: `/dokuman-merkezi/${a.slug}/`,
         body: abody,
+        crumbs: [["Doküman Merkezi", "/dokuman-merkezi/"], [a.title]],
       })
     );
   }
@@ -1281,6 +1304,7 @@ function buildForms() {
         description: f.summary,
         path: `/dokuman-merkezi/formlar/${f.slug}/`,
         body,
+        crumbs: [["Doküman Merkezi", "/dokuman-merkezi/"], [f.title]],
       })
     );
   }
@@ -1331,7 +1355,7 @@ function buildExtras() {
   const urls = written
     .map(
       (p) =>
-        `  <url><loc>${site.domain}${p}</loc><changefreq>monthly</changefreq></url>`
+        `  <url><loc>${site.domain}${p}</loc><lastmod>${BUILD_DATE}</lastmod><changefreq>monthly</changefreq></url>`
     )
     .join("\n");
 

@@ -3,7 +3,7 @@
 export const site = {
   name: "MBO Yapı Sistem",
   legalName: "MBO Yapı Sistem ve Ticaret Ltd. Şti.",
-  domain: "https://www.mboyapi.com",
+  domain: "https://mboyapi.com",
   tagline: "Elektromekanik Taahhüt ve Mühendislik",
   description:
     "MBO Yapı Sistem; AVM, otel, rezidans ve endüstriyel tesisler için elektrik, mekanik, otomasyon (BMS), güneş enerjisi ve elektrikli araç şarj sistemlerinde uluslararası standartlarda mühendislik ve taahhüt hizmeti sunar.",
@@ -27,6 +27,8 @@ export const site = {
   // Sahada ve masada uyulan normlar — teknik alıcının aradığı ilk sinyal.
   standards: ["IEC", "EN", "NFPA", "ASHRAE", "FIDIC"],
   protocols: ["BACnet", "Modbus", "KNX", "DALI", "M-Bus", "Profibus", "LonWorks", "SNMP"],
+  // Kurumsal sosyal hesap adresleri (LinkedIn, Instagram). Dolarsa Organization şemasının sameAs alanına yazılır.
+  social: [],
 };
 
 export const nav = [
