@@ -581,7 +581,7 @@ function buildSystems() {
     <div class="wrap">
       ${sectionHead("MBO'nun rolü", "Süreçte neleri üstleniyoruz?")}
       ${checklist(role)}
-      <p class="prose mt-4">${esc(systemsIntro.brands)}</p>
+      ${s.noBrands ? "" : `<p class="prose mt-4">${esc(systemsIntro.brands)}</p>`}
     </div>
   </section>
   ${

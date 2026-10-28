@@ -17,28 +17,24 @@ export const detailNotes = {
 export const systemDetails = {
   "akilli-otopark": {
     flow: [
-      { t: "Giriş", s: "Kamera plakayı okur, araç kaydedilir" },
-      { t: "Doluluk algılama", s: "Park yerlerinin dolu/boş bilgisi toplanır" },
-      { t: "Yönlendirme", s: "Ekranlar sürücüyü boş yere yönlendirir" },
-      { t: "Ödeme", s: "Çıkışta süre hesaplanır, ödeme alınır" },
-      { t: "Yönetim", s: "Doluluk ve geçiş kayıtları tek ekranda izlenir" },
-    ],
-    trends: [
-      { term: "Yapay zekâ destekli plaka okuma", text: "Görüntü işleme tabanlı modern sistemler farklı ışık, açı ve hava koşullarında plakayı daha güvenilir okumayı hedefler. Hangi yazılımın uygun olduğu kamera yerleşimine ve kullanıma göre belirlenir." },
-      { term: "Temassız ve plaka bazlı geçiş", text: "Kart ya da bilet çekmeden, plaka ile giriş-çıkış ve abonelik yönetimi birçok tesiste standart beklenti hâline geliyor." },
-      { term: "Mobil ödeme ve uygulama", text: "Ödemenin mobil uygulama veya QR ile yapılabilmesi, çıkış kuyruklarını azaltmayı amaçlar." },
-      { term: "Doluluk verisinden analiz", text: "Gün ve saat bazlı doluluk verisi, otopark işletmesinin kapasite ve yönlendirme kararlarına destek olur." },
-      { term: "Şarj ve bina sistemleriyle birlikte düşünme", text: "Otopark; elektrikli araç şarj, havalandırma ve bina otomasyonu ile birlikte planlandığında işletme daha bütüncül yönetilir." },
+      { t: "Giriş", s: "Kamera plakayı okur; kayıtlı araç geçer, misafir girişi kaydedilir" },
+      { t: "Doluluk algılama", s: "Park yeri ya da kat bazında doluluk bilgisi toplanır" },
+      { t: "Yönlendirme", s: "Giriş ve kat tabelaları sürücüyü boş yere yönlendirir" },
+      { t: "Ödeme", s: "Otomatik ödeme noktasında ya da işletmenin seçtiği altyapıyla alınır" },
+      { t: "Yönetim", s: "Giriş-çıkış kayıtları, doluluk geçmişi, abonelik ve tarife yönetilir" },
     ],
     scenarios: [
-      { term: "AVM otoparkı", text: "Girişte plaka okunur, katlarda boş yer ekranları kullanıcıyı yönlendirir, çıkışta ödeme yapılır; AVM yönetimi doluluğu tek panelden izler." },
-      { term: "Rezidans / site", text: "Sakinlerin ve misafirlerin plakaları tanımlanır; yetkisiz araç girişinde yönetime bildirim gider." },
-      { term: "Hastane veya ofis binası", text: "Çalışan, ziyaretçi ve acil araç alanları ayrı tanımlanır; yoğun saatlerde ziyaretçiler boş yere yönlendirilir." },
+      { term: "AVM veya plaza", text: "Girişte plaka okunur, kat tabelaları boş yeri gösterir, ödeme çıkışta alınır; yönetim doluluk geçmişini ve kayıtları izler." },
+      { term: "Rezidans / site", text: "Sakinlerin abonelikleri ve misafir araçları ayrı tanımlanır; giriş-çıkış kayıtları yönetim yazılımında tutulur." },
+      { term: "Hastane veya ofis binası", text: "Çalışan, ziyaretçi ve servis araçları ayrı kullanıcı grupları olarak tanımlanır; doluluk bilgisi girişte ve katlarda gösterilir." },
     ],
     faq: [
-      { q: "Mevcut otoparka sonradan kurulabilir mi?", a: "Genellikle evet. Keşifte mevcut kablolama, aydınlatma ve giriş-çıkış düzenine bakılır; gerekiyorsa ek altyapı önerilir." },
-      { q: "Plaka tanıma kişisel veri sayılır mı?", a: "Plaka bilgisi kişisel veri kapsamında değerlendirilebilir. Saklama ve aydınlatma konusunu işletmenizin hukuk danışmanıyla birlikte netleştirmenizi öneririz." },
-      { q: "Doluluk algılama her park yerine mi kurulur?", a: "Park yeri bazlı ya da bölge bazlı yapılabilir. Hangisinin uygun olduğu otopark düzenine ve bütçeye göre keşifte belirlenir." },
+      { q: "Mevcut bariyerlerle çalışır mı?", a: "Keşifte mevcut bariyer ve kumanda yapısı incelenir; uyum seçilen sisteme göre belirlenir, gerekirse bariyer de pakete alınır." },
+      { q: "Abone ve misafir girişleri ayrılabilir mi?", a: "Bu ayrım çoğu sistemde yönetim yazılımında yapılır; seçilen üründe keşif sırasında teyit edilir." },
+      { q: "Kurulum ne kadar sürer?", a: "Süre otoparkın büyüklüğüne ve tedarik süresine bağlıdır; keşiften sonra iş programıyla birlikte bildirilir." },
+      { q: "Sistemi siz mi üretiyorsunuz?", a: "Hayır. Sistemin üreticisi değiliz; uygun ürünü seçip temin ediyor, ihtiyaca göre kurup devreye alıyoruz." },
+      { q: "Hangi markalarla çalışıyorsunuz?", a: "Sistemin üreticisi değiliz. Kamera, bariyer, sensör ve yazılımı şartnameye ve keşif sonucuna göre seçip temin ediyoruz; seçenekler teklifte birlikte değerlendirilir." },
+      { q: "Teklif için hangi bilgiler gerekir?", a: "Otoparkın türü ve yeri, giriş ve çıkış sayısı, yaklaşık park yeri sayısı, istenen modüller (plaka tanıma, doluluk ve yönlendirme, ödeme) ve mevcut bariyer, kamera ve kablo altyapısı. İlk adım keşiftir." },
     ],
   },
 
@@ -186,10 +182,10 @@ export const systemDetails = {
     ],
     trends: [
       { term: "Yapay zekâ destekli sulama", text: "Hava tahmini, toprak nemi ve bitki ihtiyacını birlikte değerlendiren akıllı sulama yazılımları, gereksiz sulamayı azaltmayı hedefler." },
-      { term: "Sensör tabanlı sulama", text: "Takvime göre değil, toprak nemi ve yağmura göre sulama; su ve enerji kullanımını daha verimli hâle getirir." },
-      { term: "Uzaktan izleme ve ev otomasyonuyla entegrasyon", text: "Sulama, bahçe aydınlatması ve havuz ekipmanı aynı uygulamadan yönetilebilir." },
-      { term: "Güneş enerjisi destekli saha ekipmanı", text: "Elektrik çekilmesi zor noktalarda güneş enerjili kontrolör ve aydınlatma kullanılabilir." },
-      { term: "Aydınlatmada senaryo yönetimi", text: "Bahçe aydınlatmasının gün batımına, harekete ve özel günlere göre otomatik çalışması hem konfor hem enerji açısından fayda sağlar." },
+      { term: "Sensör tabanlı sulama", text: "Takvime göre değil, toprak nemi ve yağmura göre sulama öne çıkan bir eğilimdir; amaç su ve enerji kullanımını daha verimli hâle getirmektir." },
+      { term: "Uzaktan izleme ve ev otomasyonuyla entegrasyon", text: "Sulama, bahçe aydınlatması ve havuz ekipmanının aynı uygulamadan yönetilmesi, sektörde öne çıkan bir eğilimdir." },
+      { term: "Güneş enerjisi destekli saha ekipmanı", text: "Elektrik çekilmesi zor noktalarda güneş enerjili kontrolör ve aydınlatma kullanımı da görülmektedir." },
+      { term: "Aydınlatmada senaryo yönetimi", text: "Bahçe aydınlatmasının gün batımına, harekete ve özel günlere göre otomatik çalışması, konfor ve enerji açısından tercih edilen bir yaklaşımdır." },
     ],
     scenarios: [
       { term: "Villa bahçesi", text: "Bölgelere ayrılmış sulama, yağmurda otomatik durma, akşam aydınlatma senaryosu ve telefondan kontrol." },
@@ -213,7 +209,7 @@ export const systemDetails = {
     ],
     trends: [
       { term: "Yapay zekâ destekli görüntü analizi", text: "Kameralardaki akıllı analiz özellikleri insan, araç gibi nesneleri ayırt edip gereksiz alarmları azaltmayı hedefler." },
-      { term: "Plaka ve yüz tanıma", text: "Araç girişlerinde plaka tanıma yaygındır; yüz tanıma gibi biyometrik çözümler kişisel veri açısından daha hassastır ve dikkatle değerlendirilmelidir." },
+      { term: "Plaka tanıma", text: "Araç girişlerinde plaka tanıma yaygındır; plaka kayıtları kişisel veri sayılabileceğinden saklama ve erişim düzeni dikkatle planlanmalıdır." },
       { term: "Bulut ve mobil erişim", text: "Kayıtlara ve canlı görüntüye telefondan erişim; bildirimlerin anında iletilmesi artık beklenen özellik." },
       { term: "Ev otomasyonuyla bütünleşme", text: "Güvenlik, aydınlatma ve kapı sistemleri tek senaryoda çalışabilir; örneğin alarm durumunda dış aydınlatma açılır." },
       { term: "Siber güvenlik", text: "IP kamera ve kayıt cihazlarında güçlü şifre, ayrı ağ ve güncelleme yönetimi, fiziksel güvenlik kadar önemlidir." },

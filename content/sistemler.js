@@ -11,6 +11,7 @@
 //   extras   : [{ title, text }] ek bölümler
 //   note     : kapsam listesinin altındaki kısa not
 //   parent   : bağlı olduğu paketin slug'ı; hub'da kart olmaz
+//   noBrands : true ise "MBO'nun rolü" altında marka cümlesi gösterilmez
 
 export const systemsIntro = {
   title: "Sistem Çözümleri",
@@ -238,22 +239,45 @@ export const systems = [
   {
     slug: "akilli-otopark",
     kvkk: true,
+    noBrands: true,
     index: "04",
     title: "Akıllı Otopark",
-    pageTitle: "Akıllı Otopark Sistemi: Plaka Tanıma, Doluluk Yönlendirme ve Ödeme",
+    pageTitle: "Akıllı Otopark: Plaka Tanıma, Doluluk Yönlendirme ve Ödeme",
+    seoTitle: "Akıllı Otopark: Plaka Tanıma, Yönlendirme, Ödeme – MBO",
     summary:
       "Plaka tanıma, araç doluluk (dolu/boş) algılama ve yönlendirme ile otopark ödeme sistemini tek çözümde kuruyoruz.",
     description:
-      "Akıllı otopark sistemi: plaka tanıma sistemi, otopark doluluk yönlendirme ve otopark ödeme sistemi. Keşif, tedarik, kurulum ve devreye alma. MBO Yapı Sistem.",
+      "Plaka tanımalı giriş-çıkış, doluluk algılama ve yönlendirme, ödeme entegrasyonu: otoparkınız için keşif, tedarik, kurulum ve devreye alma. MBO Yapı Sistem.",
     lead:
-      "Araçların girişte plakasından tanınması, hangi park yerinin dolu ya da boş olduğunun algılanıp sürücünün boş yere yönlendirilmesi ve çıkışta ödemenin alınması tek sistem olarak kurulabilir. Mevcut otoparkınıza ek olarak ya da yeni yapılan otoparkta, bina sistemleriyle uyumlu şekilde planlıyoruz.",
+      "Girişte kuyruk, içeride boş yer arayan araçlar ve elle tutulan kayıtlar otoparkı bir işletmenin en çok şikâyet edilen yeri yapabilir. Akıllı otopark plaka tanıma, doluluk algılama ve ödemeyi tek sistemde toplar. Sistemi otoparkınızın trafiğine ve kullanıcı yapısına göre kurar, devreye alır ve bakımını üstleniriz. Sistemin üreticisi değiliz; uygun ürünü seçip temin ediyor, ihtiyaca göre kurup devreye alıyoruz.",
     items: [
-      "Plaka tanıma sistemi (giriş/çıkış)",
-      "Araç doluluk (dolu/boş) algılama ve yönlendirme",
-      "Otopark ödeme sistemi",
-      "Elektrik, haberleşme altyapısı ve bina sistemleriyle entegrasyon",
+      "Plaka tanıma ile giriş-çıkış: kamera, bariyer ve yönetim yazılımı birlikte çalışır; abone, misafir ve ziyaretçi araçları ayrı tanımlanabilir.",
+      "Doluluk algılama ve yönlendirme: park yeri ya da kat bazında doluluk bilgisi giriş ve kat tabelalarıyla sürücüye gösterilir.",
+      "Ödeme: otomatik ödeme noktası ya da işletmenin seçtiği ödeme altyapısıyla entegrasyon.",
+      "Yönetim ve raporlama: giriş-çıkış kayıtları, doluluk geçmişi, abonelik ve tarife yönetimi.",
     ],
-    areas: ["AVM", "Otel", "Hastane", "Rezidans / site", "Ofis ve plaza", "Sanayi tesisi"],
+    areas: ["AVM ve plaza", "Otel", "Hastane", "Rezidans / site", "Ofis binası", "Otopark işletmesi"],
+    role: [
+      "Keşif: giriş-çıkış noktaları, yoğun saatler, aydınlatma, kablo güzergâhı ve ağ altyapısı yerinde incelenir.",
+      "Tedarik: kamera, bariyer, sensör, tabela ve yazılım ihtiyaca göre seçilir ve temin edilir.",
+      "Kurulum: montaj, kablolama, ağ ve mevcut bariyer ya da geçiş sistemleriyle entegrasyon tamamlanır.",
+      "Devreye alma: tanıma, yönlendirme ve ödeme senaryoları test edilir; kullanıcılar eğitilir, sistem tutanakla teslim edilir.",
+      "Periyodik bakım sözleşmesi: kamera açısı ve temizliği, sensör ve bariyer kontrolleri, yazılım güncellemeleri planlı yürütülür.",
+    ],
+    extras: [
+      {
+        title: "Neden önce keşif?",
+        text: "Plaka tanıma başarısı kamera açısına, aydınlatmaya ve araç hızına bağlıdır. Bu yüzden ürün seçiminden önce saha incelenir.",
+      },
+      {
+        title: "Kişisel veri",
+        text: "Plaka tanıma kişisel veri işler. Plaka verisinin işlenmesi işletmenin KVKK yükümlülükleri kapsamında planlanır; KVKK gereklilikleri tasarımda ele alınır, saklama süresi ve erişim yetkileri kurulumdan önce işletmeyle birlikte belirlenir.",
+      },
+      {
+        title: "Ödeme altyapısı",
+        text: "Ödeme hizmet sağlayıcısını işletme seçer; sistem tarafındaki entegrasyon planlanır ve test edilir.",
+      },
+    ],
     links: [],
   },
   {
@@ -261,6 +285,8 @@ export const systems = [
     index: "05",
     title: "Peyzaj Otomasyonu",
     pageTitle: "Peyzaj Otomasyonu: Sulama ve Aydınlatma Kontrolü",
+    seoTitle: "Peyzaj Otomasyonu: Sulama ve Aydınlatma | MBO Yapı Sistem",
+    noBrands: true,
     summary:
       "Bahçe, site ve açık alanlar için sulama ve aydınlatmayı otomatik çalışan bir sistemde topluyoruz.",
     description:
@@ -282,6 +308,7 @@ export const systems = [
     index: "06",
     title: "Villa Güvenlik",
     pageTitle: "Villa Güvenlik Sistemleri: Kamera, CCTV ve Plaka Tanıma",
+    noBrands: true,
     summary:
       "Villa ve müstakil konutlar için kamera/CCTV, plaka tanıma ve giriş kontrolünü bir paket olarak kuruyoruz.",
     description:

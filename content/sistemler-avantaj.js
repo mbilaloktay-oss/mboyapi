@@ -12,16 +12,16 @@ export const benefitsNote =
 export const systemExtras = {
   "akilli-otopark": {
     overview: [
-      "Akıllı otopark; giriş, park ve çıkış sürecini tek bir düzene bağlar. Plaka tanıma araçların kimliğini otomatik olarak belirler, doluluk algılama hangi bölgede yer olduğunu bilir, yönlendirme ekranları bu bilgiyi sürücüye aktarır, ödeme sistemi de çıkışı hızlandırır.",
-      "Sürücü için daha az dolaşma ve bekleme, işletmeci için daha az manuel iş ve daha görünür bir otopark demektir. Sistem, mevcut otoparka eklenebileceği gibi yeni projelerde baştan planlanabilir.",
+      "Akıllı otopark; giriş, park ve çıkış sürecini tek bir düzene bağlar. Girişte plaka tanıma, içeride doluluk algılama ve yönlendirme, çıkışta ödeme birlikte çalışır; giriş-çıkış kayıtları ve doluluk geçmişi yönetim yazılımında toplanır.",
+      "Sistemi otoparkın trafiğine ve kullanıcı yapısına göre kurarız: giriş ve çıkış sayısı, yoğun saatler, abone ve misafir araçları, ödeme yöntemi ve mevcut altyapı keşifte netleşir. Yenileme ya da yeni kurulum planlıyorsanız ilk adım keşiftir.",
     ],
     benefits: [
-      { term: "Sürücüye kolaylık", text: "Bilet çekmeden ve kart aramadan giriş; boş yere hızlı ulaşma. Özellikle yoğun saatlerde otoparkta dolaşma süresini azaltmayı hedefler." },
-      { term: "Daha az bekleme ve kuyruk", text: "Plaka bazlı geçiş ve kolay ödeme, giriş ve çıkış noktalarında bekleme yaratan işlemleri azaltır." },
-      { term: "İşletmeye görünürlük", text: "Anlık doluluk, giriş-çıkış kayıtları ve kullanım yoğunluğu tek ekranda izlenir; kapasite ve yönlendirme kararlarına veri sağlar." },
-      { term: "Operasyonel yükü azaltma", text: "Elle yapılan kontrol ve kayıt işlerinin otomatikleşmesi, personelin başka görevlere yönelmesine olanak tanır." },
-      { term: "Güvenlik katkısı", text: "Plaka kayıtları ve kamera görüntüleri, olay anında geriye dönük inceleme imkânı verir (kayıt ve saklama düzeni hukuki gereklere göre kurulur)." },
-      { term: "Marka ve ziyaretçi deneyimi", text: "AVM, otel ve hastane gibi yerlerde ziyaretin ilk ve son anı otopark olduğundan düzenli bir otopark, tesisin algısına katkı sağlar." },
+      { term: "Bilet beklemeden giriş", text: "Kayıtlı araçlar bilet almadan geçer; misafir girişleri otomatik kaydedilir." },
+      { term: "Boş yere hızlı ulaşma", text: "Sürücü boş yeri girişte ve kat tabelalarında görür; yer aramak için dolaşma azalabilir." },
+      { term: "Çıkışta daha az bekleme", text: "Otomatik ödeme noktası ya da işletmenin seçtiği ödeme altyapısıyla çıkıştaki bekleme azalabilir." },
+      { term: "Kayıt ve raporlama", text: "Giriş-çıkış kayıtları, doluluk geçmişi, abonelik ve tarife yönetimi tek yerden izlenir." },
+      { term: "İhtiyaca göre seçim", text: "Önce keşif, sonra ürün seçimi: giriş-çıkış sayısı, yoğun saatler ve kullanıcı grupları netleşmeden sistem seçilmez." },
+      { term: "Kişisel veride kontrol", text: "Plaka kayıtlarını kimin göreceği ve ne kadar saklanacağı kurulumdan önce işletmeyle birlikte belirlenir." },
     ],
   },
 
@@ -103,13 +103,13 @@ export const systemExtras = {
   "villa-guvenlik": {
     overview: [
       "Villa güvenliği, yalnızca kamera takmak değil; çevreyi izleme, araç girişini kontrol etme ve gerektiğinde size haber verme işinin birlikte kurulmasıdır. IP kameralar, plaka tanıma ve geçiş kontrol aynı çatı altında planlandığında sistem daha tutarlı çalışır.",
-      "Kayıtlara ve canlı görüntüye telefondan erişebilir, hareket algılandığında bildirim alabilirsiniz. Kişisel veri işleyen bu sistemlerde kayıt, erişim ve saklama düzenini KVKK'ya uygun çalışma ilkesiyle kurmayı taahhüt ederiz.",
+      "Kayıtlara ve canlı görüntüye telefondan erişebilir, hareket algılandığında bildirim alabilirsiniz. Kamera, plaka tanıma ve geçiş kontrolü kişisel veri işler; bu sistemler işletmenin KVKK yükümlülükleri dikkate alınarak planlanır.",
     ],
     benefits: [
       { term: "Huzur ve görünürlük", text: "Çevre ve girişlerin kamera ile izlenmesi, evde olmasanız bile mülkünüzü takip etmenizi sağlar." },
       { term: "Uzaktan erişim", text: "Canlı görüntü ve geçmiş kayıtlara mobil cihazdan ulaşma; bildirimlerle olaydan hemen haberdar olma." },
       { term: "Araç girişi kolaylığı", text: "Plaka tanıma ile tanımlı araçlara kolay geçiş; yetkisiz araçların fark edilmesine katkı." },
-      { term: "Akıllı analiz ile daha az yanlış alarm", text: "Akıllı görüntü analizi özellikleri, insan ve araç gibi nesneleri ayırt ederek gereksiz uyarıları azaltmayı hedefler." },
+      { term: "Akıllı analiz yanlış alarmları azaltabilir", text: "Akıllı görüntü analizi özellikleri, insan ve araç gibi nesneleri ayırt ederek gereksiz uyarıları azaltabilir." },
       { term: "Geriye dönük inceleme", text: "Olay sonrası kayıtlara bakarak neyin ne zaman olduğunu inceleme imkânı (saklama düzeni hukuki gereklere göre kurulur)." },
       { term: "Bütünsel yönetim", text: "Güvenlik, aydınlatma ve kapı sistemleri aynı senaryoda çalışabilir; örneğin alarm anında dış aydınlatmanın açılması." },
     ],
