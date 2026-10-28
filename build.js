@@ -146,7 +146,7 @@ function buildHome() {
       <div class="grid-services">
         ${hubSystems
           .map(
-            (s) => `<a class="svc" href="/sistemler/${s.slug}/">
+            (s) => `<a class="svc${s.hub ? " svc--wide" : ""}" href="/sistemler/${s.slug}/">
           <span class="svc__num">${esc(s.index)}</span>
           <span class="svc__title">${esc(s.title)}</span>
           <span class="svc__text">${esc(s.summary)}</span>
@@ -404,7 +404,7 @@ function buildSystems() {
   const cards = (list) =>
     list
       .map(
-        (s) => `<a class="svc" href="/sistemler/${s.slug}/">
+        (s) => `<a class="svc${s.hub ? " svc--wide" : ""}" href="/sistemler/${s.slug}/">
           <span class="svc__num">${esc(s.index)}</span>
           <span class="svc__title">${esc(s.title)}</span>
           <span class="svc__text">${esc(s.description)}</span>
@@ -414,7 +414,7 @@ function buildSystems() {
       .join("\n        ");
 
   const subLinks = systems
-    .filter((s) => s.parent)
+    .filter((s) => s.parent && !s.hub)
     .map((s) => `<a href="/sistemler/${s.slug}/">${esc(s.title)}</a>`)
     .join(" · ");
 
@@ -492,7 +492,7 @@ function buildSystems() {
   );
 
   for (const s of systems) {
-    const others = hubSystems.filter((x) => x.slug !== s.slug && x.slug !== s.parent);
+    const others = hubSystems.filter((x) => !x.hub && x.slug !== s.slug && x.slug !== s.parent);
     const role = s.role || defaultRole;
     const d = { ...(systemDetails[s.slug] || {}), ...(systemExtras[s.slug] || {}) };
 

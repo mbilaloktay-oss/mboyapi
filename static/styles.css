@@ -1389,3 +1389,12 @@ main, h2[id] { scroll-margin-top: 88px; }
   .totop, .quickbar, .crumbs, .backlink { display: none; }
   body { padding-bottom: 0; }
 }
+
+/* hub ve ana sayfada ek kart (Güneş Enerjisi + Akü): tam genişlik, soldan vurgu çizgisi */
+.grid-services .svc--wide { grid-column: 1 / -1; border-left: 4px solid var(--accent); }
+.svc--wide .svc__text { max-width: 78ch; }
+
+/* konum yolu satırında sağda "← Tüm ..." geri bağlantısı */
+.crumbs { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; column-gap: 20px; }
+.crumbs .crumbs__back { font-size: 14.5px; font-weight: 600; color: var(--accent-deep); }
+.crumbs .crumbs__back:hover { color: var(--ink); }

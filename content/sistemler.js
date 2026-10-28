@@ -10,7 +10,8 @@
 //   photo    : üst görselin dosya adı (yoksa slug)
 //   extras   : [{ title, text }] ek bölümler
 //   note     : kapsam listesinin altındaki kısa not
-//   parent   : bağlı olduğu paketin slug'ı; hub'da kart olmaz
+//   parent   : bağlı olduğu paketin slug'ı; hub'da kart olmaz (hub: true değilse)
+//   hub      : true ise parent'lı sayfa hub'da ve ana sayfada ayrı, tam genişlikte kart olarak da görünür
 //   noBrands : true ise "MBO'nun rolü" altında marka cümlesi gösterilmez
 
 export const systemsIntro = {
@@ -355,28 +356,39 @@ export const systems = [
   {
     slug: "gunes-enerjisi",
     parent: "enerji-surekliligi",
+    hub: true,
     index: "03.2",
-    title: "Güneş Enerjisi",
-    pageTitle: "Güneş Enerjisi (GES) Sistemleri: Tasarım, Kurulum ve İzleme",
+    title: "Güneş Enerjisi + Akü",
+    pageTitle: "Güneş Enerjisi ve Akü Sistemleri: Tasarım, Kurulum ve İzleme",
+    seoTitle: "Güneş Enerjisi + Akü: Tasarım, Kurulum, İzleme – MBO",
     summary:
-      "İşletme ve tesisler için güneş enerjisi sistemlerini keşif, tasarım, kurulum ve devreye alma olarak sunuyoruz.",
+      "Güneş paneli ve akü sistemlerini keşiften devreye almaya kadar kuruyoruz; gün içi üretimi depolayıp kesinti anında kritik yükleri besliyoruz.",
     description:
-      "Güneş enerjisi sistemi (GES) kurulumu: keşif, tasarım, tedarik, kurulum ve devreye alma. Elektrik altyapısı ve izleme. MBO Yapı Sistem.",
+      "Güneş paneli + akü: gün içi üretimi depolayıp kesinti anında kritik yükleri besleyen sistem. Keşif, tasarım, kurulum ve devreye alma. MBO Yapı Sistem.",
     lead:
-      "Tesisin enerji tüketimine ve çatı ya da arazi koşullarına göre güneş enerjisi sistemini projelendiriyor, kuruyor ve mevcut elektrik altyapısına bağlıyoruz. İsteğe göre enerji izleme ve bina otomasyonu entegrasyonu da planlanır.",
+      "Tesisin ya da villanın enerji tüketimine, çatı ve arazi koşullarına göre güneş enerjisi sistemini projelendiriyor, kuruyor ve mevcut elektrik altyapısına bağlıyoruz. Akü (batarya) ekleyerek gün içi üretimi depoluyor, kesinti anında kritik yükleri besleyen bir yapı kuruyoruz. İsteğe göre enerji izleme ve bina otomasyonu entegrasyonu da planlanır.",
     items: [
       "Keşif ve sistem tasarımı",
       "Panel, evirici ve elektrik pano tedariki",
+      "Akü (batarya) sistemi ve kritik yük beslemesi",
       "Kurulum ve elektrik bağlantıları",
       "Enerji izleme ve otomasyon entegrasyonu",
     ],
-    areas: ["Sanayi tesisi", "AVM", "Otel", "Ofis ve plaza", "Rezidans / site"],
+    areas: ["Villa", "Sanayi tesisi", "AVM", "Otel", "Ofis ve plaza", "Rezidans / site"],
+    extras: [
+      {
+        title: "Yeşil Evler: villalar için kesintisiz enerji",
+        text:
+          "Yeşil Evler, villalar için güneş panelini, LiFePO4 bataryayı ve otomatik transfer (ATS) kontrollü jeneratörü tek sistemde birleştiren paket yaklaşımımızdır. Kesintide önce güneş ve batarya devrededir; uzun kesintide jeneratör devreye girer. Sistem keşif ve yük analiziyle boyutlandırılır.",
+      },
+    ],
     links: [
       { label: "Güneş enerjisi, akü ve jeneratör rehberi", href: "/dokuman-merkezi/gunes-enerjisi-aku-jenerator/" },
+      { label: "Enerji Sürekliliği: Karar Vermeden Önce 8 Soru", href: "/dokuman-merkezi/enerji-surekliligi-8-soru/" },
       { label: "Enerji Sürekliliği paketi", href: "/sistemler/enerji-surekliligi/" },
     ],
   },
 ];
 
 // Hub sayfasında ve "Diğer çözüm paketleri" bloğunda kart olarak görünen paketler.
-export const hubSystems = systems.filter((s) => !s.parent);
+export const hubSystems = systems.filter((s) => !s.parent || s.hub);
