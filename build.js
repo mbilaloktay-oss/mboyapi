@@ -978,7 +978,7 @@ function requestForm(konu) {
             veri.delete("_gotcha");
             if (tuzak) {
               f.reset();
-              d.innerHTML = '<strong>Talebiniz bize ulaştı. ✓</strong> En kısa sürede dönüş yapacağız.';
+              d.innerHTML = '<strong>Talebiniz bize ulaştı. ✓</strong> Size 1 iş günü içinde dönüş yapacağız.';
               d.className = "form__state form__state--ok";
               d.hidden = false;
               b.textContent = eski;
@@ -992,7 +992,7 @@ function requestForm(konu) {
             }).then(function (r) {
               if (!r.ok) throw new Error(r.status);
               f.reset();
-              d.innerHTML = '<strong>Talebiniz bize ulaştı. ✓</strong> En kısa sürede dönüş yapacağız. Acil bir işse WhatsApp’tan da yazabilirsiniz.';
+              d.innerHTML = '<strong>Talebiniz bize ulaştı. ✓</strong> Size 1 iş günü içinde dönüş yapacağız. Acil bir işse WhatsApp’tan da yazabilirsiniz.';
               d.className = "form__state form__state--ok";
               d.hidden = false;
               b.textContent = eski;
