@@ -28,7 +28,9 @@ export const site = {
   standards: ["IEC", "EN", "NFPA", "ASHRAE", "FIDIC"],
   protocols: ["BACnet", "Modbus", "KNX", "DALI", "M-Bus", "Profibus", "LonWorks", "SNMP"],
   // Kurumsal sosyal hesap adresleri (LinkedIn, Instagram). Dolarsa Organization şemasının sameAs alanına yazılır.
-  social: [],
+  social: [
+    "https://www.instagram.com/mboyapsistem/",
+  ],
 };
 
 export const nav = [
