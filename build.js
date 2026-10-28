@@ -18,7 +18,7 @@ import { kvkk } from "./content/kvkk.js";
 import { systemDetails, detailNotes } from "./content/sistemler-detay.js";
 import { systemExtras, benefitsNote } from "./content/sistemler-avantaj.js";
 import { guides, guideCategories, guidesIntro, guideAuthor, guideDate } from "./content/rehberler.js";
-import { page, sectionHead, specList, checklist, esc, rich, organizationSchema } from "./lib/layout.js";
+import { page, sectionHead, specList, checklist, esc, rich, articleBody, organizationSchema } from "./lib/layout.js";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const OUT = join(ROOT, "dist");
@@ -1326,9 +1326,7 @@ function buildDocuments() {
 
   <section class="section">
     <div class="wrap prose article">
-      ${a.blocks
-        .map((b) => (b.t === "h2" ? `<h2>${esc(b.x)}</h2>` : `<p>${esc(b.x)}</p>`))
-        .join("\n      ")}
+      ${articleBody(a.blocks, (b) => `<p>${esc(b.x)}</p>`)}
       <p class="notice mt-6">Doküman Merkezi'mizde ücretsiz sözleşme, teknik şartname ve iş güvenliği şablonlarını <a href="/dokuman-merkezi/">indirebilirsiniz</a>.</p>
     </div>
   </section>
@@ -1371,7 +1369,6 @@ function buildDocuments() {
 
 /** Rehber gövdesindeki bir bloğu HTML'e çevirir (blok türleri: content/rehberler.js başlığı). */
 function guideBlock(b) {
-  if (b.t === "h2") return `<h2>${rich(b.x)}</h2>`;
   if (b.t === "p") return `<p>${rich(b.x)}</p>`;
   if (b.t === "note") return `<p class="notice">${rich(b.x)}</p>`;
   if (b.t === "ul" || b.t === "ol") return `<${b.t}>${b.x.map((i) => `<li>${rich(i)}</li>`).join("")}</${b.t}>`;
@@ -1398,7 +1395,7 @@ function buildGuides() {
 
   <section class="section">
     <div class="wrap prose article">
-      ${g.blocks.map(guideBlock).join("\n      ")}
+      ${articleBody(g.blocks, guideBlock, rich)}
     </div>
   </section>
 
