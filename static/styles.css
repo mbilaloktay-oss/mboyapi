@@ -1256,6 +1256,7 @@ p { margin: 0; text-wrap: pretty; }
 .sysphoto { margin: 0; border: 1px solid var(--rule); background: var(--paper-3); }
 .sysphoto img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 7; object-fit: cover; }
 @media (max-width: 720px) { .sysphoto img { aspect-ratio: 3 / 2; } }
+.sysphoto figcaption { padding: 8px 14px; font-size: 13px; color: var(--ink-3); border-top: 1px solid var(--rule); }
 .assure { border: 1px solid var(--rule); border-left: 4px solid var(--accent); background: var(--accent-wash); padding: 24px 26px; max-width: 78ch; }
 .assure__h { font-weight: 600; color: var(--ink); margin-bottom: 8px; }
 .assure p { margin: 0 0 14px; color: var(--ink-2); }

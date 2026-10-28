@@ -27,23 +27,23 @@ export const systemExtras = {
 
   "pano-cozumleri": {
     overview: [
-      "Pano, bir tesisin elektrik ve otomasyon altyapısının kalbidir. MCC panoları pompa, fan ve benzeri motorları kontrol eder; DDC panoları iklimlendirme gibi bina sistemlerini otomatik yönetir; kompanzasyon panoları reaktif gücü dengeleyerek elektrik altyapısının daha düzenli çalışmasına yardımcı olur.",
-      "Doğru tasarlanmış ve düzgün üretilmiş bir pano, işletmede daha az arıza, daha kolay bakım ve ileride genişlemeye izin veren bir düzen demektir. Tasarım, üretim, kurulum ve devreye almayı aynı ekip yürüttüğünde sorumluluk da tek elde toplanır.",
+      "Pano, bir tesisin elektrik ve otomasyon altyapısının kalbidir. MCC panoları pompa, fan ve benzeri motorları besler, korur ve kumanda eder; DDC panoları (Türkiye'de SBS panosu olarak da bilinir) iklimlendirme ve havalandırma gibi bina sistemlerini otomatik yönetir; kompanzasyon panoları reaktif gücü dengeleyerek elektrik altyapısının daha düzenli çalışmasına yardımcı olur.",
+      "Doğru tasarlanmış bir pano; işletmede daha az arıza, daha kolay bakım ve ileride genişlemeye izin veren bir düzen demektir. Üretici ya da bayi değiliz: işimiz ihtiyacı doğru tanımlamak, ürünü ona göre seçmek ve sistemi terzi hassasiyetiyle kurmak. Tasarım, kurulum ve devreye alma tek elden yönetildiğinde sorumluluk da tek elde toplanır.",
     ],
     benefits: [
-      { term: "Projeye özel çözüm", text: "Hazır kalıp yerine tesisin yüklerine, motorlarına ve kontrol senaryolarına göre tasarlanan pano; gereksiz maliyet ve eksik kapasite riskini azaltmayı hedefler." },
-      { term: "Tek muhatap", text: "Tasarım, üretim, kurulum ve devreye alma aynı ekipte olduğundan sorun çıktığında kime başvuracağınız bellidir." },
-      { term: "Kolay işletme ve bakım", text: "Düzenli etiketleme, anlaşılır şema ve yerleşim; bakım ekibinin işini hızlandırır ve hata olasılığını azaltır." },
-      { term: "İzleme ve uzaktan erişim imkânı", text: "Enerji analizörleri ve haberleşme modülleriyle tüketim, durum ve alarm bilgisi bina otomasyonuna veya SCADA'ya aktarılabilir." },
-      { term: "Enerji maliyetine katkı", text: "Kompanzasyon, reaktif güç kaynaklı kesintileri ve bedelleri azaltmaya yardımcı olabilir; etkisi tesisin yük profiline bağlıdır." },
-      { term: "Genişlemeye hazır tasarım", text: "Yedek kapasite ve esnek yerleşim, tesis büyüdüğünde maliyetli revizyonların önüne geçmeyi hedefler." },
+      { term: "Reaktif enerji bedelinin kontrolü", text: "Kompanzasyon panosu reaktif tüketimi yönetmelikte tanımlı sınırlar içinde tutmayı hedefler; enerji analizörü durumu sürekli kayıt altında tutar." },
+      { term: "Arızaya hızlı müdahale", text: "Motor koruma ve kumanda tek panoda toplanır; çalışma ve arıza bilgisi BMS'e aktarılarak arızanın yeri sahada aranmadan görülür." },
+      { term: "İhtiyaca göre çalışan mekanik sistemler", text: "DDC (SBS) panosu klima santrali, fan ve pompaları sensör verisine göre çalıştırır; enerjinin ve ekipman ömrünün korunmasına katkı sağlar." },
+      { term: "Ölçerek yönetim", text: "Ana giriş ve kritik çıkışlarda ölçüm yapılır; tüketim bölüm bölüm görülür, tasarruf kararları tahmine değil veriye dayanır." },
+      { term: "Belgeli teslim", text: "Tek hat şeması, FAT tutanağı, test raporları ve as-built çizimlerle teslim; bakım ve genişleme kolaylaşır." },
+      { term: "Terzi hassasiyetiyle kurulum", text: "Sistemi hazır bir ürüne uydurmayız: ihtiyacı çıkarır, ürünü ona göre seçer, sistemi ona göre kurarız. Tasarımdan devreye almaya sorumluluk tek muhatapta kalır." },
     ],
   },
 
-  "otomasyon-malzemeleri": {
+  "otomasyon-ve-kontrol": {
     overview: [
       "PLC ve otomasyon ürünleri; makineleri, pompaları ve proseslerini önceden belirlenen senaryolara göre otomatik çalıştırır. Doğru ürünün doğru uygulamada kullanılması, hem işletmenin sürekliliği hem de ileride yedek parça ve genişleme kolaylığı açısından önemlidir.",
-      "Biz yalnızca parça tedarik etmeyiz; uygulamanın ihtiyacına göre ürün seçimine, sahaya zamanında teslime ve gerektiğinde devreye alma desteğine yardımcı oluruz. Siemens, ABB, Schneider Electric gibi önde gelen markalarla temin ve uygulama yapıyoruz.",
+      "Biz yalnızca parça tedarik etmeyiz; uygulamanın ihtiyacına göre ürün seçimine, sahaya zamanında teslime ve gerektiğinde devreye alma desteğine yardımcı oluruz. Siemens, ABB, Schneider gibi markalarda temin ve uygulama yapıyoruz.",
     ],
     benefits: [
       { term: "Doğru ürün, doğru uygulama", text: "Mühendislik destekli seçim, gereğinden pahalı ya da yetersiz ürün alma riskini azaltmayı hedefler." },

@@ -254,6 +254,66 @@ export const services = [
       },
     ],
   },
+
+  {
+    slug: "ruhsat-projeleri",
+    index: "10",
+    title: "Ruhsat Projeleri",
+    pageTitle: "Ruhsat Projeleri: Hazırlık ve Koordinasyon",
+    seoTitle: "Elektrik, Mekanik ve Statik Ruhsat Projeleri – MBO Yapı",
+    description:
+      "Villa ve konut projelerinde elektrik, mekanik ve statik ruhsat projelerinin hazırlanması ve koordinasyonu: uygulamada sorun çıkarmayan kararlar.",
+    summary:
+      "Villa ve konut projelerinde elektrik, mekanik ve statik ruhsat projelerinin hazırlanması ve koordinasyonu: uygulamada sorun çıkarmayan kararlar.",
+    lead:
+      "Ruhsat projesi bir formalite değil, binanın nasıl yapılacağının ilk planıdır. Villa ve konut projelerinde elektrik, mekanik ve statik ruhsat projelerinin, ilgili meslek odasına kayıtlı yetkili müellif mühendislerle hazırlanmasını ve koordinasyonunu üstleniriz; projeleri müellifler imzalar. Mimari projeyle eş zamanlı çalışır, uygulamada mimariyi değiştirecek kararları ruhsat aşamasında netleştiririz.",
+    points: [
+      {
+        term: "Elektrik ruhsat projesi",
+        text: "Yük listesi, kurulu güç ve talep gücü; ana pano, sayaç ve jeneratör yeri.",
+      },
+      {
+        term: "Mekanik ruhsat projesi",
+        text: "Isı kaynağı ve teknik oda, havalandırma, sıhhi tesisat; şaft ve tesisat geçişleri.",
+      },
+      {
+        term: "Statik ruhsat projesi",
+        text: "Yetkili statik mühendisle koordineli.",
+      },
+      {
+        term: "Koordinasyon",
+        text: "Mimar ve proje ekibiyle disiplinler arası uyum, revizyonların takibi.",
+      },
+    ],
+    decisions: {
+      title: "Ruhsatta ezbere verilmeyecek 6 karar",
+      items: [
+        "Isı kaynağı ve teknik oda yeri",
+        "Şaft ve tesisat geçişleri",
+        "Ana pano, sayaç ve jeneratör yeri",
+        "Kurulu güç ve talep gücü, güneş paneli dahil",
+        "Havuz varsa makine dairesi",
+        "Asma tavan kotları",
+      ],
+      note:
+        "Bu kararlar ruhsatta geçiştirilirse uygulamada şaft, tavan ve teknik oda için mimari değişir. Ruhsat ile uygulama arasındaki fark büyürse iskân aşamasında sorun çıkabilir.",
+    },
+    steps: {
+      title: "Nasıl çalışıyoruz",
+      items: [
+        { t: "İhtiyaç listesi", s: "Mimari projeyle birlikte elektrik ve mekanik ihtiyaçlar netleşir." },
+        { t: "Ruhsat projeleri", s: "Elektrik, mekanik ve statik projeler yetkili müelliflerce hazırlanır; koordinasyonu biz yürütürüz." },
+        { t: "Onay süreci", s: "Revizyonlar takip edilir." },
+        { t: "İsteğe bağlı", s: "Uygulama projesi, uygulama ve devreye alma." },
+      ],
+    },
+    quote: "Ruhsat Projeleri",
+    related: [
+      { label: "Ruhsat Öncesi Elektrik ve Mekanik İhtiyaç Listesi", href: "/dokuman-merkezi/ruhsat-oncesi-ihtiyac-listesi/" },
+      { label: "Enerji Sürekliliği: yedek güç ve EV şarj altyapısı", href: "/sistemler/enerji-surekliligi/" },
+    ],
+    service: true,
+  },
 ];
 
 // Her hizmet sayfasının altında tekrarlanan kapanış — mevcut sitedeki metin.

@@ -44,11 +44,12 @@ export const systemDetails = {
 
   "pano-cozumleri": {
     flow: [
-      { t: "İhtiyaç ve şema", s: "Yükler, motorlar, kontrol senaryoları belirlenir" },
-      { t: "Tasarım", s: "Tek hat şeması, yerleşim ve malzeme listesi hazırlanır" },
-      { t: "Üretim", s: "Pano imalatı ve atölye testleri yapılır" },
-      { t: "Kurulum", s: "Sahaya montaj ve kablolama yapılır" },
-      { t: "Devreye alma", s: "Fonksiyon testleri ve teslim dokümanları" },
+      { t: "Keşif", s: "Yükler, motorlar ve kontrol ihtiyaçları çıkarılır. Teslim: keşif notu, yük ve nokta listesi taslağı." },
+      { t: "Tasarım ve onay", s: "Tek hat şeması, pano yerleşimi ve ürün seçimi. Teslim: onaylı çizim seti, malzeme listesi." },
+      { t: "İmalat ve FAT", s: "Anlaşmalı imalatçı atölyesinde üretim; sevkiyattan önce fabrika kabul testi. Teslim: FAT tutanağı." },
+      { t: "Kurulum", s: "Sahada montaj, kablo bağlantıları ve etiketleme. Teslim: montaj kontrol kayıtları." },
+      { t: "Devreye alma", s: "Fonksiyon, koruma ve haberleşme testleri; BMS bağlantısı nokta nokta doğrulanır. Teslim: test raporları, as-built çizimler." },
+      { t: "Periyodik bakım", s: "İsteğe bağlı bakım sözleşmesiyle düzenli kontrol. Teslim: bakım raporları." },
     ],
     trends: [
       { term: "Akıllı pano ve izleme", text: "Panolara eklenen enerji analizörleri ve haberleşme modülleriyle tüketim, yük ve alarm bilgisi uzaktan izlenebilir." },
@@ -58,18 +59,31 @@ export const systemDetails = {
       { term: "Dokümantasyon ve izlenebilirlik", text: "As-built şema, etiketleme ve test raporlarının teslimi; ileride bakım ve genişletmeyi kolaylaştırır." },
     ],
     scenarios: [
-      { term: "Arıtma tesisi", text: "Pompa, blower ve karıştırıcılar için MCC panosu; seviye ve debi bilgisiyle çalışan otomasyon." },
-      { term: "AVM / otel", text: "Havalandırma ve iklimlendirme ekipmanlarını yöneten DDC panoları ve ana enerji kompanzasyonu." },
-      { term: "Sanayi tesisi", text: "Üretim hatlarının motor kontrolü ve reaktif güç yönetimi için tek çatı altında pano seti." },
+      { term: "Arıtma tesisi", text: "Pompa, blower ve karıştırıcılar için MCC panosu ve kompanzasyon; seviye ve debi bilgisiyle çalışan proses otomasyonu." },
+      { term: "AVM / otel", text: "Klima santralleri ve havalandırmayı yöneten DDC (SBS) panoları; ana girişte kompanzasyon ve enerji izleme." },
+      { term: "Sanayi tesisi", text: "Üretim hatlarının motor kontrolü, reaktif güç yönetimi ve tüketim izlemesi için tek elden pano seti." },
     ],
     faq: [
-      { q: "MCC, DDC ve kompanzasyon panosu arasındaki fark nedir?", a: "MCC motor ve pompaların kontrolünü, DDC iklimlendirme gibi bina sistemlerinin otomasyonunu, kompanzasyon panosu ise reaktif güç yönetimini üstlenir." },
-      { q: "Pano üretimi sizde mi yapılıyor?", a: "Evet, tasarım ve üretim tarafında destek veriyoruz; kurulum ve devreye almayı da aynı ekip yürütür." },
-      { q: "Mevcut panoya ekleme yapılabilir mi?", a: "Çoğu durumda yapılabilir. Mevcut panonun kapasitesi ve durumu keşifte kontrol edilir." },
+      { q: "MCC, DDC (SBS) ve kompanzasyon panosu arasındaki fark nedir?",
+        a: "MCC panosu motorları besler, korur ve kumanda eder. DDC (SBS) panosu mekanik sistemleri sensör verisine göre otomatik yönetir. Kompanzasyon panosu reaktif gücü dengeleyerek enerji kalitesini ve faturayı kontrol altında tutmaya yardımcı olur. Çoğu tesiste üçü birlikte çalışır." },
+      { q: "DDC panosu ile SBS panosu aynı şey mi?",
+        a: "Evet. Türkiye'de DDC panosu için SBS panosu adı da kullanılır; ikisi de mekanik sistemleri sensör verisine göre yöneten bina otomasyon panosunu anlatır." },
+      { q: "Panoları siz mi üretiyorsunuz?",
+        a: "Hayır. Panolar onaylanan tasarıma göre anlaşmalı imalatçı atölyesinde üretilir; sevkiyattan önce atölyede fabrika kabul testi (FAT) yapılır ve tutanakla kayda alınır. Bizim işimiz tasarım, ürün seçimi, kurulum ve devreye alma: sistemi ihtiyaca göre kurmak." },
+      { q: "Mevcut panoya ekleme veya revizyon yapılabilir mi?",
+        a: "Çoğu durumda yapılabilir. Panonun kapasitesi, bölmeleme yapısı ve genel durumu keşifte incelenir; uygunsa revizyon, değilse yeni pano önerilir." },
+      { q: "Teklif için hangi bilgiler gerekiyor?",
+        a: "Varsa tek hat şeması veya yük listesi, motor güçleri, kontrol senaryosu, pano yeri ve şartname. Bunlar elinizde yoksa keşifte birlikte çıkarırız." },
+      { q: "Hangi marka ürünlerle çalışıyorsunuz?",
+        a: "Üretici ya da bayi değiliz. Şartnameye ve ihtiyaca göre Siemens, ABB, Schneider Electric gibi üreticilerin ürünlerini temin edip uyguluyoruz; seçimde tedarik süresini ve servis erişimini de birlikte değerlendiriyoruz." },
+      { q: "Termal kamerayla pano kontrolü yapıyor musunuz?",
+        a: "Evet. Panolar yük altındayken termal kamerayla taranır; ısınan bağlantı ve elemanlar arıza ya da yangına dönüşmeden tespit edilir, bulgular fotoğraflı raporla önceliklendirilir. Bu kontrol periyodik bakım sözleşmesinin de parçasıdır." },
+      { q: "Pano odası için gazlı söndürme sistemi kuruyor musunuz?",
+        a: "Evet. Su kullanılamayan pano ve sunucu odaları için gazlı söndürme sistemini ihtiyaca göre seçiyor, projelendirme ve kurulum sürecini yönetiyoruz. Projelendirme ve uygulamada ilgili standartlar ve üretici gereklilikleri esas alınır." },
     ],
   },
 
-  "otomasyon-malzemeleri": {
+  "otomasyon-ve-kontrol": {
     flow: [
       { t: "İhtiyaç", s: "Uygulama ve giriş/çıkış noktaları belirlenir" },
       { t: "Seçim", s: "PLC ve ürünler mühendislik destekli seçilir" },
@@ -90,9 +104,21 @@ export const systemDetails = {
       { term: "Bina teknik odası", text: "Havalandırma, pompa ve ısıtma ekipmanları için bölgesel kontrolörler ve izleme." },
     ],
     faq: [
-      { q: "Hangi markalar?", a: "Siemens, ABB, Schneider Electric gibi önde gelen markalarla temin ve uygulama yapıyoruz; seçim ihtiyaca ve bütçeye göre yapılır." },
-      { q: "Yalnızca ürün alabilir miyim?", a: "Evet, tedarik tek başına da talep edilebilir. İsterseniz ürün seçimi ve devreye alma desteği ekleriz." },
-      { q: "Yazılım desteği veriyor musunuz?", a: "Uygulamanın kapsamına göre yazılım ve devreye alma desteğini birlikte planlıyoruz; kapsam teklifte netleştirilir." },
+      { q: "Üretimi durmuş bir ürün için ne yapılabilir?", a: "Önce aynı ürünün tedarik imkânı araştırılır. Bulunamazsa muadil ya da yeni nesil ürüne geçiş, sistem uyumu ve devreye alma ihtiyacıyla birlikte değerlendirilir." },
+      { q: "Muadil ürün kullanmak risk midir?", a: "Uyum kontrolü yapılmadan risklidir. Haberleşme, montaj ölçüleri ve yazılım uyumu kontrol edildiğinde muadil ürün güvenle kullanılabilir." },
+      { q: "Acil yedek parça ihtiyacında nasıl ilerliyorsunuz?", a: "Ürün bilgisi ve etiket fotoğrafıyla tedarik seçenekleri ve teslim süreleri hızla çıkarılır; gerekirse montaj ve devreye alma da planlanır." },
+      { q: "Yalnız malzeme satın alabilir miyiz?", a: "Evet. İsterseniz montaj ve devreye almayı da üstleniriz." },
+      { q: "Hangi markalarda temin ve uygulama yapıyorsunuz?", a: "Siemens, Schneider, ABB, Omron ve Mitsubishi gibi markaların ürünlerinde temin ve uygulama yapıyoruz." },
+    ],
+  },
+
+  "enerji-surekliligi": {
+    faq: [
+      { q: "Jeneratör mü, güneş + akü mü?", a: "İkisi çoğu zaman birbirinin alternatifi değil, tamamlayıcısıdır. Karar; kritik yük listesine, kesinti profiline ve gün içi tüketime göre verilir." },
+      { q: "ATS panosu ne işe yarar?", a: "Şebeke kesildiğinde yükü otomatik olarak yedek kaynağa, şebeke geri geldiğinde güvenle şebekeye aktarır." },
+      { q: "Mevcut binama EV şarj istasyonu eklenebilir mi?", a: "Çoğu durumda evet. Önce bağlantı gücü, ana pano ve sayaç düzeni kontrol edilir; gerekirse yük yönetimi planlanır." },
+      { q: "Sitemizde şarj istasyonu için ne gerekir?", a: "Site yönetiminin kararı, altyapı uygunluğu, sayaç ve faturalama düzeni ve kullanım kuralları birlikte planlanır." },
+      { q: "Bakım neden önemli?", a: "Yedek güç sistemleri çoğu zaman beklemede durur. Periyodik test çalıştırmaları ve akü kontrolleri, sistemin kritik anda çalışmasını sağlar." },
     ],
   },
 

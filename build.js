@@ -13,7 +13,7 @@ import { home, about, contact } from "./content/pages.js";
 import { articles, templates, templatesIntro, templatesDisclaimer } from "./content/documents.js";
 import { projectImages, imgUrl, serviceImages } from "./content/images.js";
 import { forms } from "./content/forms.js";
-import { systems, systemsIntro, defaultRole, kvkkAssurance, systemPhotos } from "./content/sistemler.js";
+import { systems, hubSystems, systemsIntro, whyOneHand, howWeWork, maintenance, defaultRole, kvkkAssurance, systemPhotos } from "./content/sistemler.js";
 import { kvkk } from "./content/kvkk.js";
 import { systemDetails, detailNotes } from "./content/sistemler-detay.js";
 import { systemExtras, benefitsNote } from "./content/sistemler-avantaj.js";
@@ -31,6 +31,47 @@ function emit(path, html) {
   mkdirSync(dirname(full), { recursive: true });
   writeFileSync(full, html, "utf8");
   written.push(path);
+}
+
+/** Service şeması: sistem paketleri ve ruhsat sayfası için. */
+function serviceSchema(name, description, path) {
+  return {
+    "@type": "Service",
+    name,
+    description,
+    url: `${site.domain}${path}`,
+    provider: { "@type": "Organization", name: site.name, url: `${site.domain}/` },
+  };
+}
+
+/** "Teklif iste" bölümü: e-posta konusu "[TEKLIF-WEB] <etiket>", WhatsApp ve telefon. */
+function quoteSection(label, { heading = `${label} için teklif alın`, noun = "", alt = true } = {}) {
+  const c = site.contact;
+  const tag = `[TEKLIF-WEB] ${label}`;
+  const mail = `mailto:${c.email}?subject=${encodeURIComponent(tag)}&body=${encodeURIComponent(`Merhaba, ${label}${noun} için teklif almak istiyorum.\n\nTesis türü / konum:\nKısa açıklama:\n`)}`;
+  const wa = waLink(`Merhaba, mboyapi.com üzerinden ${label}${noun} için teklif almak istiyorum.`);
+  return `<section class="section${alt ? " section--alt" : ""} section--tight">
+    <div class="wrap">
+      ${sectionHead("Teklif iste", heading, "Tesis türünü ve ihtiyacınızı kısaca yazmanız yeterli; size dönüş yapıp keşif ve teklif sürecini birlikte planlayalım.")}
+      <div class="channels">
+        <a class="channel channel--primary" href="${mail}">
+          <span class="channel__tag">E-posta · teklif iste</span>
+          <span class="channel__value">${esc(c.email)}</span>
+          <span class="channel__note">Konu satırı hazır gelir: ${esc(tag)}</span>
+        </a>
+        <a class="channel" href="${wa}" rel="noopener">
+          <span class="channel__tag">WhatsApp</span>
+          <span class="channel__value">${esc(c.phone)}</span>
+          <span class="channel__note">Mesajınız hazır yazılı açılır.</span>
+        </a>
+        <a class="channel" href="${c.phoneHref}">
+          <span class="channel__tag">Telefon</span>
+          <span class="channel__value">${esc(c.phone)}</span>
+          <span class="channel__note">${esc(c.hours[0][0])} ${esc(c.hours[0][1])}</span>
+        </a>
+      </div>
+    </div>
+  </section>`;
 }
 
 /* ------------------------------------------------------------------ ana sayfa */
@@ -85,7 +126,7 @@ function buildHome() {
     <div class="wrap">
       ${sectionHead("02 — Çözüm paketleri", "Sistem Çözümleri", systemsIntro.lead)}
       <div class="grid-services">
-        ${systems
+        ${hubSystems
           .map(
             (s) => `<a class="svc" href="/sistemler/${s.slug}/">
           <span class="svc__num">${esc(s.index)}</span>
@@ -235,6 +276,56 @@ function buildServices() {
       : ""
   }
 
+  ${
+    s.decisions
+      ? `<section class="section section--tight">
+    <div class="wrap prose">
+      <h2>${esc(s.decisions.title)}</h2>
+      <ol>
+        ${s.decisions.items.map((i) => `<li>${esc(i)}</li>`).join("\n        ")}
+      </ol>
+      <p>${esc(s.decisions.note)}</p>
+    </div>
+  </section>`
+      : ""
+  }
+
+  ${
+    s.steps
+      ? `<section class="section section--alt section--tight">
+    <div class="wrap">
+      ${sectionHead("Süreç", s.steps.title)}
+      <ol class="flow">
+        ${s.steps.items
+          .map(
+            (n, i) => `<li class="flow__node"><span class="flow__no">${String(i + 1).padStart(2, "0")}</span><span class="flow__t">${esc(n.t)}</span><span class="flow__s">${esc(n.s)}</span></li>`
+          )
+          .join("\n        ")}
+      </ol>
+    </div>
+  </section>`
+      : ""
+  }
+
+  ${s.quote ? quoteSection(s.quote, { alt: false }) : ""}
+
+  ${
+    s.related
+      ? `<section class="section section--alt section--tight">
+    <div class="wrap">
+      ${sectionHead("İlgili içerik", "Daha fazla bilgi")}
+      <div class="index">
+        ${s.related
+          .map(
+            (l) => `<a class="index__row" href="${l.href}"><span class="index__name">${esc(l.label)}</span><span class="index__arrow">→</span></a>`
+          )
+          .join("\n        ")}
+      </div>
+    </div>
+  </section>`
+      : ""
+  }
+
   <section class="section section--tight">
     <div class="wrap prose">
       <h2>${esc(serviceClosing.title)}</h2>
@@ -263,11 +354,12 @@ function buildServices() {
     emit(
       `/hizmetler/${s.slug}/`,
       page({
-        title: `${s.title} | ${site.name}`,
-        description: s.summary,
+        title: s.seoTitle || `${s.title} | ${site.name}`,
+        description: s.description || s.summary,
         path: `/hizmetler/${s.slug}/`,
         body: sbody,
         crumbs: [["Hizmetler", "/hizmetler/"], [s.title]],
+        schema: s.service ? [serviceSchema(s.title, s.description || s.summary, `/hizmetler/${s.slug}/`)] : [],
       })
     );
   }
@@ -291,22 +383,22 @@ function kvkkBox() {
 }
 
 function buildSystems() {
-  const c = site.contact;
-  const tag = (s) => `[TEKLIF-WEB] ${s.title}`;
-  const mail = (s) =>
-    `mailto:${c.email}?subject=${encodeURIComponent(tag(s))}&body=${encodeURIComponent("Merhaba, " + s.title + " paketi için teklif almak istiyorum.\n\nTesis türü / konum:\nKısa açıklama:\n")}`;
-
   const cards = (list) =>
     list
       .map(
         (s) => `<a class="svc" href="/sistemler/${s.slug}/">
           <span class="svc__num">${esc(s.index)}</span>
           <span class="svc__title">${esc(s.title)}</span>
-          <span class="svc__text">${esc(s.summary)}</span>
+          <span class="svc__text">${esc(s.description)}</span>
           <span class="svc__more">Paketi incele →</span>
         </a>`
       )
       .join("\n        ");
+
+  const subLinks = systems
+    .filter((s) => s.parent)
+    .map((s) => `<a href="/sistemler/${s.slug}/">${esc(s.title)}</a>`)
+    .join(" · ");
 
   const hub = `
   <section class="pagehead">
@@ -320,10 +412,47 @@ function buildSystems() {
   <section class="section">
     <div class="wrap">
       <div class="grid-services">
-        ${cards(systems)}
+        ${cards(hubSystems)}
+      </div>
+      <p class="notice mt-6">Enerji Sürekliliği ayrıntı sayfaları: ${subLinks}</p>
+    </div>
+  </section>
+
+  <section class="section section--alt section--tight">
+    <div class="wrap">
+      ${sectionHead("Yaklaşım", whyOneHand.title)}
+      ${checklist(whyOneHand.items)}
+      <p class="prose mt-4">${esc(whyOneHand.closing)}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      ${sectionHead("Süreç", howWeWork.title)}
+      <ol class="flow">
+        ${howWeWork.steps
+          .map(
+            (n, i) => `<li class="flow__node"><span class="flow__no">${String(i + 1).padStart(2, "0")}</span><span class="flow__t">${esc(n.t)}</span><span class="flow__s">${esc(n.s)}</span></li>`
+          )
+          .join("\n        ")}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--alt section--tight">
+    <div class="wrap">
+      ${sectionHead("Bakım", maintenance.title, maintenance.text)}
+      <div class="index">
+        ${maintenance.links
+          .map(
+            (l) => `<a class="index__row" href="${l.href}"><span class="index__name">${esc(l.label)}</span><span class="index__arrow">→</span></a>`
+          )
+          .join("\n        ")}
       </div>
     </div>
   </section>
+
+  ${quoteSection(maintenance.tag, { heading: "Bakım sözleşmesi için teklif alın", alt: false })}
 
   <section class="section section--alt section--tight">
     <div class="wrap prose">
@@ -336,9 +465,8 @@ function buildSystems() {
   emit(
     "/sistemler/",
     page({
-      title: `Sistem Çözümleri | Otopark, Pano, Otomasyon, Şarj, GES | ${site.name}`,
-      description:
-        "Akıllı otopark, MCC/DDC/kompanzasyon panoları, PLC otomasyon malzemeleri, elektrikli araç şarj, güneş enerjisi, peyzaj otomasyonu ve villa güvenlik çözüm paketleri.",
+      title: systemsIntro.seoTitle,
+      description: systemsIntro.description,
       path: "/sistemler/",
       body: hub,
       crumbs: [["Sistem Çözümleri"]],
@@ -346,10 +474,9 @@ function buildSystems() {
   );
 
   for (const s of systems) {
-    const others = systems.filter((x) => x.slug !== s.slug).slice(0, 3);
+    const others = hubSystems.filter((x) => x.slug !== s.slug && x.slug !== s.parent);
     const role = s.role || defaultRole;
     const d = { ...(systemDetails[s.slug] || {}), ...(systemExtras[s.slug] || {}) };
-    const wa = waLink(`Merhaba, mboyapi.com üzerinden ${s.title} paketi için teklif almak istiyorum.`);
 
     const body = `
   <section class="pagehead">
@@ -362,7 +489,8 @@ function buildSystems() {
   <section class="section section--tight">
     <div class="wrap">
       <figure class="sysphoto">
-        <img src="/gorseller/sistemler/${s.slug}.jpg" alt="${esc(systemPhotos[s.slug] || s.title)}" width="1688" height="1125" decoding="async">
+        <img src="/gorseller/sistemler/${s.photo || s.slug}.jpg" alt="${esc(systemPhotos[s.slug] || s.title)}" width="1688" height="1125" decoding="async">
+        <figcaption>Temsili görsel</figcaption>
       </figure>
     </div>
   </section>
@@ -406,6 +534,7 @@ function buildSystems() {
     <div class="wrap">
       ${sectionHead("Kapsam", "Pakette neler var?")}
       ${checklist(s.items)}
+      ${s.note ? `<p class="prose mt-4">${esc(s.note)}</p>` : ""}
     </div>
   </section>
 
@@ -415,6 +544,17 @@ function buildSystems() {
       ${checklist(s.areas)}
     </div>
   </section>
+
+  ${(s.extras || [])
+    .map(
+      (x) => `<section class="section section--alt section--tight">
+    <div class="wrap prose">
+      <h2>${esc(x.title)}</h2>
+      <p class="lead mt-4">${esc(x.text)}</p>
+    </div>
+  </section>`
+    )
+    .join("\n")}
 
   ${
     d.trends
@@ -479,28 +619,7 @@ function buildSystems() {
 
   ${s.kvkk ? kvkkBox() : ""}
 
-  <section class="section section--alt section--tight">
-    <div class="wrap">
-      ${sectionHead("Teklif iste", `${s.title} için teklif alın`, "Tesis türünü ve ihtiyacınızı kısaca yazmanız yeterli; size dönüş yapıp keşif ve teklif sürecini birlikte planlayalım.")}
-      <div class="channels">
-        <a class="channel channel--primary" href="${mail(s)}">
-          <span class="channel__tag">E-posta · teklif iste</span>
-          <span class="channel__value">${esc(c.email)}</span>
-          <span class="channel__note">Konu satırı hazır gelir: ${esc(tag(s))}</span>
-        </a>
-        <a class="channel" href="${wa}" rel="noopener">
-          <span class="channel__tag">WhatsApp</span>
-          <span class="channel__value">${esc(c.phone)}</span>
-          <span class="channel__note">Mesajınız hazır yazılı açılır.</span>
-        </a>
-        <a class="channel" href="${c.phoneHref}">
-          <span class="channel__tag">Telefon</span>
-          <span class="channel__value">${esc(c.phone)}</span>
-          <span class="channel__note">${esc(c.hours[0][0])} ${esc(c.hours[0][1])}</span>
-        </a>
-      </div>
-    </div>
-  </section>
+  ${quoteSection(s.title, { noun: " paketi" })}
 
   <section class="section section--tight">
     <div class="wrap">
@@ -514,21 +633,14 @@ function buildSystems() {
     emit(
       `/sistemler/${s.slug}/`,
       page({
-        title: `${s.pageTitle} | ${site.name}`,
+        title: s.seoTitle || `${s.pageTitle} | ${site.name}`,
         description: s.description,
         path: `/sistemler/${s.slug}/`,
         body,
         hideCta: true,
         crumbs: [["Sistem Çözümleri", "/sistemler/"], [s.title]],
-        schema: [
-          {
-            "@type": "Service",
-            name: s.title,
-            description: s.description,
-            url: `${site.domain}/sistemler/${s.slug}/`,
-            provider: { "@type": "Organization", name: site.name, url: `${site.domain}/` },
-          },
-        ],
+        schema: [serviceSchema(s.title, s.description, `/sistemler/${s.slug}/`)],
+
       })
     );
   }
