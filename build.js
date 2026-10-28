@@ -432,7 +432,7 @@ function buildSystems() {
       <div class="grid-services">
         ${cards(hubSystems)}
       </div>
-      <p class="notice mt-6">Enerji Sürekliliği ayrıntı sayfaları: ${subLinks}</p>
+      ${subLinks ? `<p class="notice mt-6">Enerji Sürekliliği ayrıntı sayfaları: ${subLinks}</p>` : ""}
     </div>
   </section>
 

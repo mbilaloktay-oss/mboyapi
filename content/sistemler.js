@@ -331,6 +331,7 @@ export const systems = [
   {
     slug: "elektrikli-arac-sarj",
     parent: "enerji-surekliligi",
+    hub: true,
     kvkk: true,
     index: "03.1",
     title: "Elektrikli Araç Şarj",
