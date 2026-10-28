@@ -1262,3 +1262,59 @@ p { margin: 0; text-wrap: pretty; }
 .assure p { margin: 0 0 14px; color: var(--ink-2); }
 .assure__link { margin: 14px 0 0 !important; }
 .assure__link a { color: var(--accent-deep); font-weight: 500; }
+
+/* ---------- rehberler (doküman merkezi) ---------- */
+
+.dossier--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.byline { margin-top: 14px; font-size: 14.5px; color: var(--ink-3); }
+.byline strong { color: var(--ink-2); font-weight: 600; }
+.guidecat {
+  margin: calc(var(--step) * 6) 0 calc(var(--step) * 2);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.guidecat:first-of-type { margin-top: calc(var(--step) * 4); }
+.index--guide .index__row { grid-template-columns: 52px minmax(0, 1fr) 28px; }
+.index--links .index__row { grid-template-columns: minmax(0, 1fr) 28px; }
+
+.article ul, .article ol { margin: calc(var(--step) * 3) 0 0; padding-left: 22px; }
+.article li { margin-top: 6px; color: var(--ink-2); font-size: 17px; line-height: 1.6; }
+.article li::marker { color: var(--accent); }
+.article ul + p, .article ol + p, .article .math + p, .article .tablewrap + p { margin-top: calc(var(--step) * 3); }
+.article > .notice { margin-top: calc(var(--step) * 4); }
+.article sub, .article sup { font-size: .72em; line-height: 0; }
+.math {
+  margin-top: calc(var(--step) * 3);
+  padding: 16px 22px;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-wash);
+  font-family: var(--mono);
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--ink);
+  overflow-x: auto;
+}
+.math > div { white-space: nowrap; }
+.tablewrap { margin-top: calc(var(--step) * 3); overflow-x: auto; }
+.gtable { border-collapse: collapse; width: 100%; font-size: 15px; }
+.gtable th, .gtable td { min-width: 92px; text-align: left; vertical-align: top; padding: 10px 14px 10px 0; border-bottom: 1px solid var(--rule-soft); }
+.gtable th {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  border-bottom-color: var(--rule);
+}
+.gtable td { color: var(--ink-2); }
+.gtable td:first-child { color: var(--ink); }
+
+@media (max-width: 720px) {
+  .dossier--4 { grid-template-columns: 1fr; }
+  .index--guide .index__row { grid-template-columns: 34px minmax(0, 1fr) 22px; }
+  .index--links .index__row { grid-template-columns: minmax(0, 1fr) 22px; }
+}

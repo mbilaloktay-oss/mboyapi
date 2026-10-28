@@ -17,7 +17,8 @@ import { systems, hubSystems, systemsIntro, whyOneHand, howWeWork, maintenance, 
 import { kvkk } from "./content/kvkk.js";
 import { systemDetails, detailNotes } from "./content/sistemler-detay.js";
 import { systemExtras, benefitsNote } from "./content/sistemler-avantaj.js";
-import { page, sectionHead, specList, checklist, esc, organizationSchema } from "./lib/layout.js";
+import { guides, guideCategories, guidesIntro, guideAuthor, guideDate } from "./content/rehberler.js";
+import { page, sectionHead, specList, checklist, esc, rich, organizationSchema } from "./lib/layout.js";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const OUT = join(ROOT, "dist");
@@ -31,6 +32,23 @@ function emit(path, html) {
   mkdirSync(dirname(full), { recursive: true });
   writeFileSync(full, html, "utf8");
   written.push(path);
+}
+
+const [AUTHOR_NAME, AUTHOR_TITLE] = guideAuthor.split(", ");
+
+/** Article şeması: doküman merkezi rehber ve teknik yazıları için. */
+function articleSchema(headline, description, path, published) {
+  return {
+    "@type": "Article",
+    headline,
+    description,
+    inLanguage: "tr",
+    datePublished: published,
+    dateModified: BUILD_DATE,
+    author: { "@type": "Person", name: AUTHOR_NAME, jobTitle: AUTHOR_TITLE },
+    publisher: { "@type": "Organization", name: site.name, url: `${site.domain}/` },
+    mainEntityOfPage: `${site.domain}${path}`,
+  };
 }
 
 /** Service şeması: sistem paketleri ve ruhsat sayfası için. */
@@ -314,7 +332,7 @@ function buildServices() {
       ? `<section class="section section--alt section--tight">
     <div class="wrap">
       ${sectionHead("İlgili içerik", "Daha fazla bilgi")}
-      <div class="index">
+      <div class="index index--links">
         ${s.related
           .map(
             (l) => `<a class="index__row" href="${l.href}"><span class="index__name">${esc(l.label)}</span><span class="index__arrow">→</span></a>`
@@ -442,7 +460,7 @@ function buildSystems() {
   <section class="section section--alt section--tight">
     <div class="wrap">
       ${sectionHead("Bakım", maintenance.title, maintenance.text)}
-      <div class="index">
+      <div class="index index--links">
         ${maintenance.links
           .map(
             (l) => `<a class="index__row" href="${l.href}"><span class="index__name">${esc(l.label)}</span><span class="index__arrow">→</span></a>`
@@ -590,7 +608,7 @@ function buildSystems() {
   <section class="section section--tight">
     <div class="wrap">
       ${sectionHead("İlgili içerik", "Daha fazla bilgi")}
-      <div class="index">
+      <div class="index index--links">
         ${s.links
           .map(
             (l) => `<a class="index__row" href="${l.href}"><span class="index__name">${esc(l.label)}</span><span class="index__arrow">→</span></a>`
@@ -1175,8 +1193,8 @@ function buildDocuments() {
     <div class="wrap">
       <span class="label">Açık kaynak</span>
       <h1>Doküman Merkezi</h1>
-      <p class="lead">Mega projelerde kullandığımız sözleşme, şartname ve iş güvenliği şablonlarını ücretsiz paylaşıyoruz. Ayrıca sahadaki tecrübemizden çıkan teknik yazıları burada bulabilirsiniz.</p>
-      <div class="dossier">
+      <p class="lead">Sözleşme, şartname ve iş güvenliği şablonlarını ücretsiz paylaşıyoruz. Ayrıca devreye alma formları, kontrol listeleri, seçim rehberleri ve sahadan teknik yazıları burada bulabilirsiniz.</p>
+      <div class="dossier dossier--4">
         <div class="dossier__cell">
           <div class="dossier__k">İndirilebilir şablon</div>
           <div class="dossier__v"><span class="num">${templates.length}</span> doküman</div>
@@ -1184,6 +1202,10 @@ function buildDocuments() {
         <div class="dossier__cell">
           <div class="dossier__k">Saha formu</div>
           <div class="dossier__v"><span class="num">${forms.length}</span> form</div>
+        </div>
+        <div class="dossier__cell">
+          <div class="dossier__k">Seçim rehberi</div>
+          <div class="dossier__v"><span class="num">${guides.length}</span> rehber</div>
         </div>
         <div class="dossier__cell">
           <div class="dossier__k">Teknik yazı</div>
@@ -1238,7 +1260,30 @@ function buildDocuments() {
 
   <section class="section">
     <div class="wrap">
-      ${sectionHead("03 — Teknik yazılar", "Sahadan notlar")}
+      ${sectionHead("03 — Rehberler", "Seçim rehberleri ve kontrol listeleri", guidesIntro)}
+      ${guideCategories
+        .map(
+          (c) => `<h3 class="guidecat">${esc(c.title)}</h3>
+      <div class="index index--guide">
+        ${c.nos
+          .map((n) => guides.find((g) => g.no === n))
+          .map(
+            (g) => `<a class="index__row" href="/dokuman-merkezi/${g.slug}/">
+          <span class="index__num">${String(g.no).padStart(2, "0")}</span>
+          <span class="index__name">${esc(g.title)}<span class="index__sub">${esc(g.description)}</span></span>
+          <span class="index__arrow">→</span>
+        </a>`
+          )
+          .join("\n        ")}
+      </div>`
+        )
+        .join("\n      ")}
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap">
+      ${sectionHead("04 — Teknik yazılar", "Sahadan notlar")}
       <div class="index">
         ${articles
           .map(
@@ -1258,9 +1303,9 @@ function buildDocuments() {
   emit(
     "/dokuman-merkezi/",
     page({
-      title: `Doküman Merkezi | Ücretsiz Proje Şablonları | ${site.name}`,
+      title: "Doküman Merkezi: Şablonlar, Formlar ve Rehberler – MBO",
       description:
-        "Elektromekanik projeler için ücretsiz taşeron sözleşmesi, sorumluluk tablosu, teknik şartname ve iş güvenliği talimatnamesi şablonları ile saha tecrübemizden teknik yazılar.",
+        "Proje şablonları, devreye alma formları, kontrol listeleri ve seçim rehberleri: pano, otomasyon, enerji, mekanik, zayıf akım ve data.",
       path: "/dokuman-merkezi/",
       body,
       crumbs: [["Doküman Merkezi"]],
@@ -1275,6 +1320,7 @@ function buildDocuments() {
       <span class="label">${esc(a.topic)} · ${esc(fmtDate(a.date))}</span>
       <h1>${esc(a.title)}</h1>
       <p class="lead">${esc(a.summary)}</p>
+      <p class="byline">Yazar: <strong>${esc(guideAuthor)}</strong></p>
     </div>
   </section>
 
@@ -1314,11 +1360,78 @@ function buildDocuments() {
         path: `/dokuman-merkezi/${a.slug}/`,
         body: abody,
         crumbs: [["Doküman Merkezi", "/dokuman-merkezi/"], [a.title]],
+        schema: [articleSchema(a.title, a.summary, `/dokuman-merkezi/${a.slug}/`, a.date)],
       })
     );
   }
 }
 
+
+/* ------------------------------------------------------------------ rehberler (doküman 1-26) */
+
+/** Rehber gövdesindeki bir bloğu HTML'e çevirir (blok türleri: content/rehberler.js başlığı). */
+function guideBlock(b) {
+  if (b.t === "h2") return `<h2>${rich(b.x)}</h2>`;
+  if (b.t === "p") return `<p>${rich(b.x)}</p>`;
+  if (b.t === "note") return `<p class="notice">${rich(b.x)}</p>`;
+  if (b.t === "ul" || b.t === "ol") return `<${b.t}>${b.x.map((i) => `<li>${rich(i)}</li>`).join("")}</${b.t}>`;
+  if (b.t === "math") return `<div class="math">${b.x.map((l) => `<div>${rich(l)}</div>`).join("")}</div>`;
+  if (b.t === "table") {
+    const row = (cells, tag) => `<tr>${cells.map((c) => `<${tag}>${rich(c)}</${tag}>`).join("")}</tr>`;
+    return `<div class="tablewrap" tabindex="0"><table class="gtable"><thead>${row(b.head, "th")}</thead><tbody>${b.rows.map((r) => row(r, "td")).join("")}</tbody></table></div>`;
+  }
+  throw new Error(`rehber bloğu tanınmıyor: ${b.t}`);
+}
+
+function buildGuides() {
+  for (const g of guides) {
+    const path = `/dokuman-merkezi/${g.slug}/`;
+    const body = `
+  <section class="pagehead">
+    <div class="wrap">
+      <span class="label">Rehber ${String(g.no).padStart(2, "0")} — ${esc(g.category)}</span>
+      <h1>${esc(g.title)}</h1>
+      <p class="lead">${rich(g.lead)}</p>
+      <p class="byline">Yazar: <strong>${esc(guideAuthor)}</strong></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap prose article">
+      ${g.blocks.map(guideBlock).join("\n      ")}
+    </div>
+  </section>
+
+  ${quoteSection(g.tag)}
+
+  <section class="section section--tight">
+    <div class="wrap">
+      ${sectionHead("İlgili içerik", "Daha fazla bilgi")}
+      <div class="index index--links">
+        ${g.related
+          .map(
+            (l) => `<a class="index__row" href="${l.href}"><span class="index__name">${esc(l.label)}</span><span class="index__arrow">→</span></a>`
+          )
+          .join("\n        ")}
+      </div>
+      <p class="notice mt-6">Tüm şablonlar, formlar ve rehberler için <a href="/dokuman-merkezi/">Doküman Merkezi</a>'ne bakabilirsiniz.</p>
+    </div>
+  </section>`;
+
+    emit(
+      path,
+      page({
+        title: g.seoTitle,
+        description: g.description,
+        path,
+        body,
+        hideCta: true,
+        crumbs: [["Doküman Merkezi", "/dokuman-merkezi/"], [g.title]],
+        schema: [articleSchema(g.title, g.description, path, guideDate)],
+      })
+    );
+  }
+}
 
 /* ------------------------------------------------------------------ saha formları */
 
@@ -1521,6 +1634,7 @@ function build() {
   buildProjects();
   buildAbout();
   buildDocuments();
+  buildGuides();
   buildForms();
   buildContact();
   buildRequest();
