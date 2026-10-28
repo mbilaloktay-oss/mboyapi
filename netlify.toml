@@ -9,6 +9,56 @@
 [build.environment]
   NODE_VERSION = "22"
 
+# Kalıcı yönlendirme: P2 sayfasının adı "Otomasyon ve Kontrol" oldu (EK 11: tek 301 budur).
+[[redirects]]
+  from = "/sistemler/otomasyon-malzemeleri"
+  to = "/sistemler/otomasyon-ve-kontrol/"
+  status = 301
+
+# LinkedIn gönderilerinin bağladığı rehber adresleri için geçici 302 (DEVIR 4.3).
+# force yok: rehber kendi adresinde yayında olduğu için Netlify o sayfayı sunar;
+# sayfa bir gün kalkarsa okur 404 yerine ilgili paket sayfasına düşer.
+# Rehber kalıcı yayında kaldıkça bu kurallar güvenlik ağıdır, istenirse silinir.
+[[redirects]]
+  from = "/dokuman-merkezi/kompanzasyon-panosu-karar-rehberi"
+  to = "/sistemler/pano-cozumleri/"
+  status = 302
+
+[[redirects]]
+  from = "/dokuman-merkezi/mcc-panosu-kontrol-listesi"
+  to = "/sistemler/pano-cozumleri/"
+  status = 302
+
+[[redirects]]
+  from = "/dokuman-merkezi/ddc-panosu-devreye-alma"
+  to = "/sistemler/pano-cozumleri/"
+  status = 302
+
+[[redirects]]
+  from = "/dokuman-merkezi/eski-plc-yeni-nesle-gecis"
+  to = "/sistemler/otomasyon-ve-kontrol/"
+  status = 302
+
+[[redirects]]
+  from = "/dokuman-merkezi/ev-sarj-istasyonu-kontrol-listesi"
+  to = "/sistemler/enerji-surekliligi/"
+  status = 302
+
+[[redirects]]
+  from = "/dokuman-merkezi/enerji-surekliligi-8-soru"
+  to = "/sistemler/enerji-surekliligi/"
+  status = 302
+
+[[redirects]]
+  from = "/dokuman-merkezi/periyodik-bakim-sozlesmesi"
+  to = "/hizmetler/periyodik-bakim-tesis-isletmesi/"
+  status = 302
+
+[[redirects]]
+  from = "/dokuman-merkezi/devreye-alma-sureci"
+  to = "/dokuman-merkezi/devreye-alma-commissioning-sureci/"
+  status = 302
+
 # Bilinmeyen bir adres istendiğinde sitenin kendi 404 sayfası gösterilsin.
 [[redirects]]
   from = "/*"

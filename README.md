@@ -7,6 +7,7 @@ Sıfır bağımlılıklı statik site. Kurulum gerektirmez, sadece Node.js ister
     node build.js      # siteyi üretir  →  dist/
     node audit.js      # taşıma denetimi: eski sitedeki her sayfa yerinde mi?
     node preview.js    # tek klasörde gezilebilir önizleme  →  preview/
+    node ifade-tara.js # yasaklı ve kontrol ifadesi taraması (push öncesi; yasaklı bulursa hata verir)
 
 `dist/` klasörünün içeriği doğrudan herhangi bir sunucuya, GitHub Pages'e,
 Netlify'a veya Vercel'e konabilir. Derleme adımı, paket kurulumu gerekmez.
@@ -22,9 +23,11 @@ Netlify'a veya Vercel'e konabilir. Derleme adımı, paket kurulumu gerekmez.
       kvkk.js         KVKK aydınlatma metni (taslak, avukat onayı gerekir)
       projects.js     12 referans proje
       documents.js    Doküman Merkezi yazıları ve şablonları
+      rehberler.js    26 seçim rehberi (Doküman Merkezi)
       images.js       fotoğraflar (bkz. aşağıdaki not)
 
     lib/layout.js     sayfa iskeleti (başlık, menü, alt bilgi)
+    ifade-listesi.txt ifade-tara.js betiğinin yasaklı/kontrol listesi (dist'e kopyalanmaz)
     static/styles.css tasarım sistemi
     build.js          üretici
 

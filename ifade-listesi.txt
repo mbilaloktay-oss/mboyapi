@@ -1,0 +1,33 @@
+# ifade-tara.js listesi (EK 8 A5, Bilal 09.10). Satır başına bir ifade.
+# Bu dosya yayınlanan çıktıya (dist) kopyalanmaz ve taramaya girmez.
+
+[YASAK]
+# Bulunursa betik hata koduyla durur.
+sıfır hata
+hatasız
+kusursuz
+sorunsuz
+tam yetkili
+en güvenilir
+küresel standart
+ilk günkü
+taşeron mantığı
+MBO Mühendislik
+global tedarik
+yönetim onaylı
+bizzat uyguluyor
+Novec
+
+[KONTROL]
+# Rapora yazılır, durdurmaz; her biri bağlamında değerlendirilir.
+garanti
+%
+tasarruf
+anahtar teslim
+üretiyor
+imalat
+tam uyumlu
+yetkili bayi
+distribütör
+çözüm ortağı
+sertifikalı
