@@ -29,7 +29,8 @@ export const site = {
   protocols: ["BACnet", "Modbus", "KNX", "DALI", "M-Bus", "Profibus", "LonWorks", "SNMP"],
   // Kurumsal sosyal hesap adresleri (LinkedIn, Instagram). Dolarsa Organization şemasının sameAs alanına yazılır.
   social: [
-    "https://www.instagram.com/mboyapsistem/",
+    "https://www.linkedin.com/company/mboyapisistem/",
+    "https://www.instagram.com/mboyapisistem/",
   ],
 };
 
